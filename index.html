@@ -615,11 +615,19 @@
                 <div class="price-description">Precio especial de lanzamiento (pago único)</div>
             </div>
 
-            <a href="https://buy.stripe.com/dRm4grh2u4V00HUfwuejK00" class="stripe-button" id="stripeBtn" onclick="showPaymentLoading(this)">OBTENER MI GUÍA LUNAR AHORA</a>
+            <a href="#" class="stripe-button" id="stripeBtn">OBTENER MI GUÍA LUNAR AHORA</a>
             
             <div class="loading" id="loading">
-                🌙 Procesando tu pago de forma segura...<br>
-                <small>Redirigiendo a Stripe - No cerrar esta ventana</small>
+                🌙 Enviando tus datos de forma segura...<br>
+                <small>Procesando información para tu guía personalizada</small>
+            </div>
+            
+            <div class="success-message" id="successMessage">
+                ✅ Datos enviados correctamente. Redirigiendo al pago seguro...
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                ❌ Error al procesar tus datos. Por favor, inténtalo de nuevo.
             </div>
         </div>
     </div>
@@ -726,6 +734,79 @@
             }, 5000);
         }
 
+        function submitFormAndRedirect() {
+            const requiredFields = [
+                'nombre', 'email', 'fechaNacimiento', 'horaNacimiento', 
+                'ciudadNacimiento', 'mes', 'pais', 'ciudad', 'ano'
+            ];
+            
+            let allFieldsValid = true;
+            const missingFields = [];
+            
+            // Validar campos
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    allFieldsValid = false;
+                    missingFields.push(field.previousElementSibling.textContent.replace(' *', ''));
+                    field.style.borderColor = '#ff4444';
+                } else {
+                    field.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                }
+            });
+            
+            if (!allFieldsValid) {
+                alert('Por favor completa todos los campos obligatorios:\n\n' + missingFields.join('\n'));
+                return false;
+            }
+            
+            // Mostrar loading
+            const loading = document.getElementById('loading');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const submitButton = document.getElementById('stripeBtn');
+            
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            loading.style.display = 'block';
+            submitButton.style.opacity = '0.6';
+            submitButton.style.pointerEvents = 'none';
+            
+            // Preparar datos para EmailJS
+            const templateParams = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                fechaNacimiento: document.getElementById('fechaNacimiento').value,
+                horaNacimiento: document.getElementById('horaNacimiento').value,
+                ciudadNacimiento: document.getElementById('ciudadNacimiento').value,
+                mes: document.getElementById('mes').value,
+                pais: document.getElementById('pais').value,
+                ciudad: document.getElementById('ciudad').value,
+                ano: document.getElementById('ano').value,
+                mesConsulta: document.getElementById('mes').value + ' ' + document.getElementById('ano').value + ', ' + document.getElementById('ciudad').value + ', ' + document.getElementById('pais').value,
+                time: new Date().toLocaleString('es-ES')
+            };
+            
+            // Enviar datos por EmailJS
+            emailjs.send('service_tk5wprp', 'template_hd3yx8p', templateParams)
+                .then(function(response) {
+                    loading.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    
+                    // Redirigir a Stripe después de 2 segundos
+                    setTimeout(() => {
+                        window.location.href = 'https://buy.stripe.com/dRm4grh2u4V00HUfwuejK00';
+                    }, 2000);
+                })
+                .catch(function(error) {
+                    loading.style.display = 'none';
+                    errorMessage.style.display = 'block';
+                    submitButton.style.opacity = '1';
+                    submitButton.style.pointerEvents = 'auto';
+                    console.error('Error:', error);
+                });
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             createStars();
             showCookieBanner();
@@ -741,37 +822,12 @@
                 }, 15000);
             }
 
-            // Validación antes de ir a Stripe
+            // Configurar el botón de Stripe
             const stripeButton = document.getElementById('stripeBtn');
             if (stripeButton) {
                 stripeButton.addEventListener('click', function(e) {
-                    const requiredFields = [
-                        'nombre', 'email', 'fechaNacimiento', 'horaNacimiento', 
-                        'ciudadNacimiento', 'mes', 'pais', 'ciudad', 'ano'
-                    ];
-                    
-                    let allFieldsValid = true;
-                    const missingFields = [];
-                    
-                    requiredFields.forEach(fieldId => {
-                        const field = document.getElementById(fieldId);
-                        if (!field.value.trim()) {
-                            allFieldsValid = false;
-                            missingFields.push(field.previousElementSibling.textContent.replace(' *', ''));
-                            field.style.borderColor = '#ff4444';
-                        } else {
-                            field.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                        }
-                    });
-                    
-                    if (!allFieldsValid) {
-                        e.preventDefault();
-                        alert('Por favor completa todos los campos obligatorios:\n\n' + missingFields.join('\n'));
-                        return false;
-                    }
-                    
-                    // Si todo está bien, proceder con el pago
-                    return true;
+                    e.preventDefault();
+                    submitFormAndRedirect();
                 });
             }
         });
