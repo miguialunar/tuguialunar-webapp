@@ -9,11 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
+    
     <style>
         :root {
             --primary-blue: #0033A0;
             --accent-gold: #F2B500;
+            --secondary-blue: #4A90E2;
             --text-white: #FFFFFF;
             --bg-dark: #001A4D;
             --bg-gradient: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary-blue) 50%, #002B7A 100%);
@@ -187,6 +188,16 @@
             border: 1px solid var(--glass-border);
         }
 
+        .consultation-block {
+            background: linear-gradient(135deg, var(--secondary-blue), #5BA0F2);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            box-shadow: var(--shadow-strong);
+            border: 1px solid rgba(74, 144, 226, 0.3);
+        }
+
         .form-title {
             font-family: 'Playfair Display', serif;
             text-align: center;
@@ -196,9 +207,33 @@
             margin-bottom: 48px;
         }
 
+        .consultation-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            color: var(--text-white);
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .consultation-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 48px;
+        }
+
         .form-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .consultation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 32px;
             margin-bottom: 40px;
         }
@@ -225,6 +260,11 @@
             font-family: inherit;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+        }
+
+        .consultation-block input, .consultation-block select {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         input:focus, select:focus {
@@ -261,7 +301,7 @@
             font-weight: 500;
         }
 
-        .process-info {
+        .delivery-info {
             background: rgba(0, 51, 160, 0.2);
             border: 1px solid rgba(0, 51, 160, 0.4);
             border-radius: 16px;
@@ -269,26 +309,26 @@
             margin: 40px 0;
         }
 
-        .process-info h3 {
+        .delivery-info h3 {
             color: var(--accent-gold);
             margin-bottom: 20px;
             font-size: 1.4rem;
             font-weight: 600;
         }
 
-        .process-info p {
+        .delivery-info p {
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 12px;
             font-size: 1.05rem;
         }
 
-        .cta-button {
+        .stripe-button {
             background: linear-gradient(45deg, var(--accent-gold), #FFD700);
             color: var(--primary-blue);
             border: none;
-            padding: 18px 48px;
+            padding: 20px 50px;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -299,15 +339,17 @@
             display: block;
             width: fit-content;
             font-family: inherit;
+            text-decoration: none;
+            text-align: center;
         }
 
-        .cta-button:hover {
+        .stripe-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 32px rgba(242, 181, 0, 0.6);
             background: linear-gradient(45deg, #FFD700, var(--accent-gold));
         }
 
-        .cta-button:disabled {
+        .stripe-button:disabled {
             opacity: 0.6;
             cursor: not-allowed;
             transform: none;
@@ -358,6 +400,9 @@
         .loading {
             color: var(--accent-gold);
             font-style: italic;
+            font-size: 1.3rem;
+            background: rgba(242, 181, 0, 0.1);
+            border: 2px solid var(--accent-gold);
         }
 
         .success-message {
@@ -441,7 +486,9 @@
             .container { padding: 0 16px; }
             .logo { font-size: 2.5rem; }
             .form-grid { grid-template-columns: 1fr; gap: 24px; }
+            .consultation-grid { grid-template-columns: 1fr; gap: 24px; }
             .form-container { padding: 40px 24px; }
+            .consultation-block { padding: 40px 24px; }
             .price { font-size: 2.2rem; }
             .legal-links { flex-direction: column; gap: 16px; }
             .cookie-content { flex-direction: column; text-align: center; }
@@ -450,7 +497,7 @@
 </head>
 <body>
     <div class="stars" id="stars"></div>
-
+    
     <div class="container">
         <header>
             <div class="logo">Tu Guía Lunar</div>
@@ -462,7 +509,7 @@
             <h2>Conecta con tu momento perfecto para decidir</h2>
             <p>Una herramienta <span class="highlight">innovadora y única</span> que te conecta con tu mundo emocional interno para tomar mejores decisiones en el momento preciso.</p>
             <p>Nuestro sistema revela los momentos emocionales clave que influyen en tus decisiones, ayudándote a entender el contexto desde el que eliges tu camino.</p>
-
+            
             <div class="benefits-grid">
                 <div class="benefit-item">
                     <h3>Decisiones Precisas</h3>
@@ -484,46 +531,83 @@
         </div>
 
         <form class="form-container" id="lunarForm">
-            <h3 class="form-title">Solicita tu Guía Lunar Personalizada</h3>
-
+            <h3 class="form-title">Tus Datos Personales</h3>
+            
             <div class="form-grid">
                 <div class="form-group">
                     <label for="nombre">Nombre completo *</label>
                     <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
                 </div>
-
+                
                 <div class="form-group">
                     <label for="email">Email *</label>
                     <input type="email" id="email" name="email" required placeholder="tu@email.com">
                 </div>
-
+                
                 <div class="form-group">
                     <label for="fechaNacimiento">Fecha de nacimiento *</label>
                     <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
                 </div>
-
+                
                 <div class="form-group">
                     <label for="horaNacimiento">Hora de nacimiento *</label>
                     <input type="time" id="horaNacimiento" name="horaNacimiento" required>
                 </div>
-
+                
                 <div class="form-group">
                     <label for="ciudadNacimiento">Ciudad de nacimiento *</label>
                     <input type="text" id="ciudadNacimiento" name="ciudadNacimiento" required placeholder="Ciudad, País">
                 </div>
+            </div>
+        </form>
 
+        <div class="consultation-block">
+            <h3 class="consultation-title">Elige cuándo deseas hacer tu Consulta</h3>
+            <p class="consultation-subtitle">(Recuerda que puedes consultar el pasado también)</p>
+            
+            <div class="consultation-grid">
                 <div class="form-group">
-                    <label for="mesConsulta">Mes, año y lugar que deseas consultar *</label>
-                    <input type="text" id="mesConsulta" name="mesConsulta" required placeholder="Ej: Marzo 2024, Madrid">
+                    <label for="mes">Mes *</label>
+                    <select id="mes" name="mes" required form="lunarForm">
+                        <option value="">Selecciona el mes</option>
+                        <option value="enero">Enero</option>
+                        <option value="febrero">Febrero</option>
+                        <option value="marzo">Marzo</option>
+                        <option value="abril">Abril</option>
+                        <option value="mayo">Mayo</option>
+                        <option value="junio">Junio</option>
+                        <option value="julio">Julio</option>
+                        <option value="agosto">Agosto</option>
+                        <option value="septiembre">Septiembre</option>
+                        <option value="octubre">Octubre</option>
+                        <option value="noviembre">Noviembre</option>
+                        <option value="diciembre">Diciembre</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pais">País *</label>
+                    <input type="text" id="pais" name="pais" required placeholder="Ej: España" form="lunarForm">
+                </div>
+                
+                <div class="form-group">
+                    <label for="ciudad">Ciudad *</label>
+                    <input type="text" id="ciudad" name="ciudad" required placeholder="Ej: Madrid" form="lunarForm">
+                </div>
+                
+                <div class="form-group">
+                    <label for="ano">Año *</label>
+                    <input type="number" id="ano" name="ano" required placeholder="Ej: 2024" min="1900" max="2030" form="lunarForm">
                 </div>
             </div>
+        </div>
 
-            <div class="process-info">
-                <h3>Proceso de entrega (24 horas)</h3>
-                <p><strong>1.</strong> Tras confirmar tu solicitud, procesaremos tu información</p>
-                <p><strong>2.</strong> Recibirás tu guía PDF personalizada por email</p>
-                <p><strong>3.</strong> Tu informe incluirá análisis específicos y recomendaciones prácticas</p>
-                <p><em>Cada guía se elabora individualmente para garantizar máxima precisión</em></p>
+        <div class="form-container">
+            <div class="delivery-info">
+                <h3>Entrega durante el transcurso del día</h3>
+                <p><strong>1.</strong> Tras confirmar tu pago, enviaremos Tu Guía Lunar Personalizada por email en el transcurso del día</p>
+                <p><strong>2.</strong> Tu informe incluirá análisis específicos y recomendaciones prácticas</p>
+                <p><strong>3.</strong> Cada guía se elabora individualmente para garantizar máxima precisión</p>
             </div>
 
             <div class="price-section">
@@ -531,12 +615,13 @@
                 <div class="price-description">Precio especial de lanzamiento (pago único)</div>
             </div>
 
-            <button type="submit" class="cta-button" id="submitBtn">SOLICITA TU GUÍA LUNAR PERSONALIZADA</button>
-
-            <div class="loading" id="loading">Enviando tu solicitud... 🌙</div>
-            <div class="success-message" id="successMessage">¡Solicitud enviada exitosamente! Te contactaremos pronto con los detalles de pago. Revisa tu email en las próximas horas.</div>
-            <div class="error-message" id="errorMessage">Error al enviar la solicitud. Por favor, inténtalo de nuevo o contacta directamente a astrocuantica8@gmail.com</div>
-        </form>
+            <a href="https://buy.stripe.com/dRm4grh2u4V00HUfwuejK00" class="stripe-button" id="stripeBtn" onclick="showPaymentLoading(this)">OBTENER MI GUÍA LUNAR AHORA</a>
+            
+            <div class="loading" id="loading">
+                🌙 Procesando tu pago de forma segura...<br>
+                <small>Redirigiendo a Stripe - No cerrar esta ventana</small>
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -556,7 +641,7 @@
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-content">
             <div class="cookie-text">
-                Utilizamos cookies para mejorar tu experiencia de navegación y analizar el tráfico del sitio.
+                Utilizamos cookies para mejorar tu experiencia de navegación y analizar el tráfico del sitio. 
                 <a href="#" onclick="showModal('cookies')">Más información</a>
             </div>
             <div class="cookie-buttons">
@@ -611,14 +696,14 @@
         function showModal(type) {
             const modal = document.getElementById('modal');
             const content = document.getElementById('modalContent');
-
+            
             const contents = {
                 privacy: `<h2>Política de Privacidad</h2><p>En Tu Guía Lunar, respetamos tu privacidad y nos comprometemos a proteger tus datos personales.</p><h3>Datos que recopilamos:</h3><ul><li>Nombre completo</li><li>Dirección de correo electrónico</li><li>Fecha y hora de nacimiento</li><li>Ciudad de nacimiento</li><li>Información sobre la consulta solicitada</li></ul><h3>Uso de los datos:</h3><p>Utilizamos tus datos exclusivamente para:</p><ul><li>Elaborar tu guía lunar personalizada</li><li>Comunicarnos contigo sobre tu solicitud</li><li>Procesar el pago correspondiente</li></ul><h3>Protección de datos:</h3><p>Tus datos están protegidos y no se comparten con terceros sin tu consentimiento.</p><h3>Derechos:</h3><p>Tienes derecho a acceder, rectificar o eliminar tus datos contactando a astrocuantica8@gmail.com</p>`,
-                terms: `<h2>Términos y Condiciones</h2><h3>1. Servicios</h3><p>Tu Guía Lunar ofrece guías astrológicas personalizadas para fines de entretenimiento y autoconocimiento.</p><h3>2. Precio y Pago</h3><p>El precio actual es de 5€ por guía (pago único). Los precios pueden cambiar sin previo aviso.</p><h3>3. Entrega</h3><p>Las guías se entregan en formato PDF por correo electrónico en un plazo de 24 horas.</p><h3>4. Política de Reembolsos</h3><p>Debido a la naturaleza personalizada del servicio, no se ofrecen reembolsos una vez entregada la guía.</p><h3>5. Uso del Servicio</h3><p>Las guías son para uso personal y no deben redistribuirse sin autorización.</p><h3>6. Limitación de Responsabilidad</h3><p>Nuestras guías son para fines de entretenimiento y no constituyen asesoramiento profesional.</p>`,
+                terms: `<h2>Términos y Condiciones</h2><h3>1. Servicios</h3><p>Tu Guía Lunar ofrece guías astrológicas personalizadas para fines de entretenimiento y autoconocimiento.</p><h3>2. Precio y Pago</h3><p>El precio actual es de 5€ por guía (pago único). Los precios pueden cambiar sin previo aviso.</p><h3>3. Entrega</h3><p>Las guías se entregan en formato PDF por correo electrónico durante el transcurso del día.</p><h3>4. Política de Reembolsos</h3><p>Debido a la naturaleza personalizada del servicio, no se ofrecen reembolsos una vez entregada la guía.</p><h3>5. Uso del Servicio</h3><p>Las guías son para uso personal y no deben redistribuirse sin autorización.</p><h3>6. Limitación de Responsabilidad</h3><p>Nuestras guías son para fines de entretenimiento y no constituyen asesoramiento profesional.</p>`,
                 legal: `<h2>Aviso Legal</h2><h3>Información de la empresa:</h3><p>Denominación: Tu Guía Lunar<br>Email: astrocuantica8@gmail.com<br>Sitio web: tuguialunar.com</p><h3>Naturaleza del servicio:</h3><p>Tu Guía Lunar ofrece servicios de consultoría astrológica y guías personalizadas con fines de entretenimiento y desarrollo personal.</p><h3>Propiedad intelectual:</h3><p>Todo el contenido de este sitio web está protegido por derechos de autor. Las guías generadas son propiedad exclusiva del cliente.</p><h3>Jurisdicción:</h3><p>Este sitio web está sujeto a la legislación española y europea en materia de protección de datos y comercio electrónico.</p>`,
                 cookies: `<h2>Política de Cookies</h2><h3>¿Qué son las cookies?</h3><p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Nos ayudan a recordar tus preferencias y mejorar tu experiencia de navegación.</p><h3>Tipos de cookies que utilizamos:</h3><ul><li><strong>Cookies técnicas (necesarias):</strong> Esenciales para el funcionamiento básico del sitio web. No pueden desactivarse.</li><li><strong>Cookies de preferencias:</strong> Recordamos tus preferencias sobre cookies y configuración del sitio.</li><li><strong>Cookies analíticas:</strong> Nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web mediante la recopilación y comunicación de información de forma anónima.</li><li><strong>Cookies funcionales:</strong> Permiten que el sitio web proporcione una funcionalidad y personalización mejoradas.</li></ul><h3>Cookies específicas:</h3><ul><li><strong>cookiesAccepted:</strong> Almacena tu preferencia sobre el uso de cookies (técnica/necesaria)</li><li><strong>EmailJS:</strong> Para el funcionamiento del formulario de contacto (funcional)</li></ul><h3>Gestión de cookies:</h3><p>Puedes controlar y/o eliminar las cookies como desees. Puedes eliminar todas las cookies que ya están en tu ordenador y puedes configurar la mayoría de navegadores para evitar que se instalen.</p><p><strong>En tu navegador:</strong></p><ul><li>Chrome: Configuración > Privacidad y seguridad > Cookies</li><li>Firefox: Preferencias > Privacidad y seguridad</li><li>Safari: Preferencias > Privacidad</li><li>Edge: Configuración > Privacidad, búsqueda y servicios</li></ul><h3>Consecuencias de deshabilitar cookies:</h3><p>Si desactivas las cookies, es posible que no puedas utilizar ciertas funciones de nuestro sitio web, como el formulario de contacto.</p><h3>Consentimiento:</h3><p>Al continuar navegando por nuestro sitio web sin cambiar la configuración de cookies de tu navegador, aceptas nuestro uso de cookies según se describe en esta política.</p><h3>Actualizaciones:</h3><p>Podemos actualizar esta Política de Cookies ocasionalmente. Te recomendamos revisar esta página periódicamente para estar informado sobre cómo utilizamos las cookies.</p><h3>Contacto:</h3><p>Si tienes preguntas sobre nuestra Política de Cookies, puedes contactarnos en: astrocuantica8@gmail.com</p><p><em>Última actualización: Enero 2025</em></p>`
             };
-
+            
             content.innerHTML = contents[type];
             modal.style.display = 'block';
         }
@@ -627,13 +712,27 @@
             document.getElementById('modal').style.display = 'none';
         }
 
+        function showPaymentLoading(button) {
+            const loading = document.getElementById('loading');
+            loading.style.display = 'block';
+            button.style.opacity = '0.6';
+            button.style.pointerEvents = 'none';
+            
+            // Reestablecer después de 5 segundos por si el usuario vuelve
+            setTimeout(() => {
+                loading.style.display = 'none';
+                button.style.opacity = '1';
+                button.style.pointerEvents = 'auto';
+            }, 5000);
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             createStars();
             showCookieBanner();
 
             const moonPhases = ['🌑', '🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘'];
             let currentPhase = 4;
-
+            
             const moonPhaseElement = document.querySelector('.moon-phase');
             if (moonPhaseElement) {
                 setInterval(() => {
@@ -642,45 +741,37 @@
                 }, 15000);
             }
 
-            const lunarForm = document.getElementById('lunarForm');
-            if (lunarForm) {
-                lunarForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-
-                    const loading = document.getElementById('loading');
-                    const successMessage = document.getElementById('successMessage');
-                    const errorMessage = document.getElementById('errorMessage');
-                    const submitButton = document.getElementById('submitBtn');
-
-                    successMessage.style.display = 'none';
-                    errorMessage.style.display = 'none';
-                    loading.style.display = 'block';
-                    submitButton.disabled = true;
-
-                    const formData = new FormData(this);
-                    const templateParams = {
-                        nombre: formData.get('nombre'),
-                        email: formData.get('email'),
-                        fechaNacimiento: formData.get('fechaNacimiento'),
-                        horaNacimiento: formData.get('horaNacimiento'),
-                        ciudadNacimiento: formData.get('ciudadNacimiento'),
-                        mesConsulta: formData.get('mesConsulta'),
-                        time: new Date().toLocaleString('es-ES')
-                    };
-
-                    emailjs.send('service_tk5wprp', 'template_hd3yx8p', templateParams)
-                        .then(function(response) {
-                            loading.style.display = 'none';
-                            successMessage.style.display = 'block';
-                            submitButton.disabled = false;
-                            lunarForm.reset();
-                        })
-                        .catch(function(error) {
-                            loading.style.display = 'none';
-                            errorMessage.style.display = 'block';
-                            submitButton.disabled = false;
-                            console.error('Error:', error);
-                        });
+            // Validación antes de ir a Stripe
+            const stripeButton = document.getElementById('stripeBtn');
+            if (stripeButton) {
+                stripeButton.addEventListener('click', function(e) {
+                    const requiredFields = [
+                        'nombre', 'email', 'fechaNacimiento', 'horaNacimiento', 
+                        'ciudadNacimiento', 'mes', 'pais', 'ciudad', 'ano'
+                    ];
+                    
+                    let allFieldsValid = true;
+                    const missingFields = [];
+                    
+                    requiredFields.forEach(fieldId => {
+                        const field = document.getElementById(fieldId);
+                        if (!field.value.trim()) {
+                            allFieldsValid = false;
+                            missingFields.push(field.previousElementSibling.textContent.replace(' *', ''));
+                            field.style.borderColor = '#ff4444';
+                        } else {
+                            field.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                        }
+                    });
+                    
+                    if (!allFieldsValid) {
+                        e.preventDefault();
+                        alert('Por favor completa todos los campos obligatorios:\n\n' + missingFields.join('\n'));
+                        return false;
+                    }
+                    
+                    // Si todo está bien, proceder con el pago
+                    return true;
                 });
             }
         });
