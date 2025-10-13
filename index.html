@@ -22,8 +22,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="zT8Nrsg3csrvDJI2iI8IIV2SnfjwTG4JK2ix2eT38-M" />
-    <title>Tu Guía Lunar - Decisiones Inteligentes con Sabiduría Lunar</title>
-    <meta name="description" content="Guías lunares personalizadas para tomar mejores decisiones emocionales. Conecta con tu momento perfecto para decidir.">
+    <title>Tu Guía Lunar Personalizada - Tu brújula emocional para decidir con claridad</title>
+    <meta name="description" content="Guía lunar personalizada en PDF. Descubre tus fechas clave y portales emocionales del mes. Documento de 8-12 páginas único para ti.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,16 +31,16 @@
     
     <style>
         :root {
-            --primary-blue: #0033A0;
+            --primary-blue: #001847;
             --accent-gold: #F2B500;
-            --secondary-blue: #4A90E2;
+            --secondary-blue: #2D4A7C;
             --text-white: #FFFFFF;
-            --bg-dark: #001A4D;
-            --bg-gradient: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary-blue) 50%, #002B7A 100%);
+            --bg-dark: #000B1F;
+            --bg-gradient: linear-gradient(135deg, #000511 0%, #001235 50%, #001847 100%);
             --glass-bg: rgba(255, 255, 255, 0.08);
             --glass-border: rgba(255, 255, 255, 0.15);
-            --shadow-soft: 0 8px 32px rgba(0, 51, 160, 0.3);
-            --shadow-strong: 0 12px 40px rgba(0, 51, 160, 0.4);
+            --shadow-soft: 0 8px 32px rgba(0, 24, 71, 0.5);
+            --shadow-strong: 0 12px 40px rgba(0, 24, 71, 0.6);
         }
 
         * {
@@ -115,11 +115,11 @@
         }
 
         .tagline {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.35rem;
+            color: rgba(255, 255, 255, 0.95);
             margin-bottom: 24px;
-            font-weight: 300;
-            line-height: 1.3;
+            font-weight: 400;
+            line-height: 1.4;
         }
 
         .moon-phase {
@@ -134,7 +134,7 @@
             50% { transform: translateY(-12px); }
         }
 
-        .description {
+        .hero-section {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
             border-radius: 20px;
@@ -145,7 +145,7 @@
             border: 1px solid var(--glass-border);
         }
 
-        .description h2 {
+        .hero-section h2 {
             font-family: 'Playfair Display', serif;
             background: linear-gradient(45deg, var(--accent-gold), #FFD700, #FFF59D);
             -webkit-background-clip: text;
@@ -154,20 +154,75 @@
             margin-bottom: 32px;
             font-size: 2.4rem;
             font-weight: 600;
-            line-height: 1.2;
+            line-height: 1.3;
         }
 
-        .description p {
+        .hero-section p {
             font-size: 1.2rem;
             margin-bottom: 20px;
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.7;
             font-weight: 300;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .highlight {
             color: var(--accent-gold);
             font-weight: 600;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cta-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+        }
+
+        .section-block {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 60px 0;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--glass-border);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            background: linear-gradient(45deg, var(--accent-gold), #FFD700, #FFF59D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 48px;
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-content p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 24px;
         }
 
         .benefits-grid {
@@ -197,6 +252,106 @@
             font-weight: 600;
         }
 
+        .benefit-item p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+        }
+
+        .experience-list {
+            list-style: none;
+            margin: 32px 0;
+        }
+
+        .experience-list li {
+            padding: 20px 24px;
+            background: rgba(45, 74, 124, 0.2);
+            border-left: 3px solid var(--accent-gold);
+            margin-bottom: 16px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .quote-box {
+            background: rgba(45, 74, 124, 0.3);
+            border-left: 4px solid var(--accent-gold);
+            padding: 24px 32px;
+            margin: 32px 0;
+            border-radius: 8px;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.95);
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .testimonial-card {
+            background: rgba(45, 74, 124, 0.2);
+            padding: 32px 28px;
+            border-radius: 16px;
+            border: 1px solid rgba(242, 181, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(242, 181, 0, 0.25);
+            border-color: rgba(242, 181, 0, 0.4);
+        }
+
+        .testimonial-quote {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-gold), #FFD700);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+        }
+
+        .testimonial-info {
+            flex: 1;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--accent-gold);
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-location {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
         .form-container {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
@@ -208,7 +363,7 @@
         }
 
         .consultation-block {
-            background: linear-gradient(135deg, var(--secondary-blue), #5BA0F2);
+            background: linear-gradient(135deg, var(--secondary-blue), #3D5A8C);
             backdrop-filter: blur(20px);
             border-radius: 24px;
             padding: 60px 40px;
@@ -321,8 +476,8 @@
         }
 
         .delivery-info {
-            background: rgba(0, 51, 160, 0.2);
-            border: 1px solid rgba(0, 51, 160, 0.4);
+            background: rgba(0, 24, 71, 0.3);
+            border: 1px solid rgba(0, 24, 71, 0.5);
             border-radius: 16px;
             padding: 32px;
             margin: 40px 0;
@@ -441,7 +596,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0, 26, 77, 0.95);
+            background: rgba(0, 11, 31, 0.95);
             backdrop-filter: blur(20px);
             border-top: 1px solid var(--glass-border);
             padding: 20px;
@@ -511,6 +666,10 @@
             .price { font-size: 2.2rem; }
             .legal-links { flex-direction: column; gap: 16px; }
             .cookie-content { flex-direction: column; text-align: center; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .hero-section { padding: 40px 24px; }
+            .section-block { padding: 40px 24px; }
+            .cta-row { flex-direction: column; gap: 16px; }
         }
     </style>
 </head>
@@ -523,37 +682,169 @@
     <div class="stars" id="stars"></div>
     
     <div class="container">
+        <!-- HEADER -->
         <header>
-            <div class="logo">Tu Guía Lunar</div>
-            <div class="tagline">Tu Guía Lunar Personalizada<br>para decisiones acertadas</div>
+            <div class="logo">🌙 Tu Guía Lunar Personalizada</div>
+            <div class="tagline">Tu brújula emocional para tomar decisiones con claridad y propósito</div>
             <div class="moon-phase">🌕</div>
         </header>
 
-        <div class="description">
-            <h2>Conecta con tu momento perfecto para decidir</h2>
-            <p>Una herramienta <span class="highlight">innovadora y única</span> que te conecta con tu mundo emocional interno para tomar mejores decisiones en el momento preciso.</p>
-            <p>Nuestro sistema revela los momentos emocionales clave que influyen en tus decisiones, ayudándote a entender el contexto desde el que eliges tu camino.</p>
+        <!-- HERO SECTION -->
+        <div class="hero-section">
+            <h2>Una guía entre 8 y 12 páginas, creada especialmente para ti</h2>
+            <p>Revela los <span class="highlight">momentos más poderosos del mes</span> para avanzar, transformar y abrir nuevas oportunidades. Más que una lectura, es un mapa emocional de precisión sorprendente, que te conecta con tu propio ritmo interno y te ayuda a decidir con confianza.</p>
             
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <h3>Decisiones Precisas</h3>
-                    <p>Identifica el momento exacto para tomar decisiones importantes</p>
+            <div class="cta-row">
+                <div class="cta-item">
+                    <span>✨</span>
+                    <span>Obtén tu guía personalizada hoy</span>
                 </div>
-                <div class="benefit-item">
-                    <h3>Autoconocimiento</h3>
-                    <p>Comprende tus patrones emocionales profundos</p>
-                </div>
-                <div class="benefit-item">
-                    <h3>Flexibilidad Total</h3>
-                    <p>Consulta cualquier mes: pasado, presente o futuro</p>
-                </div>
-                <div class="benefit-item">
-                    <h3>Herramienta Única</h3>
-                    <p>Primera tecnología de su tipo disponible</p>
+                <div class="cta-item">
+                    <span>📩</span>
+                    <span>Recíbela en el día</span>
                 </div>
             </div>
         </div>
 
+        <!-- QUÉ ES -->
+        <div class="section-block">
+            <h2 class="section-title">¿Qué es Tu Guía Lunar Personalizada?</h2>
+            <div class="section-content">
+                <p><strong>No es una simple lectura. Es tu guía personal de transformación.</strong></p>
+                <p>Cada guía se elabora individualmente para mostrarte qué fuerzas internas estarán activas durante el mes, cómo influirán en tus emociones y qué oportunidades únicas podrás aprovechar.</p>
+                <p>Es como recibir una <span class="highlight">brújula emocional diseñada solo para ti</span>: un documento claro, inspirador y práctico que podrás consultar una y otra vez.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>🔑 Portales emocionales clave</h3>
+                    <p>Identificación precisa de tus momentos de mayor poder y transformación durante el mes</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>💫 Períodos de transformación</h3>
+                    <p>Explicaciones detalladas sobre tus ciclos de expansión y evolución personal</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>🌱 Recomendaciones prácticas</h3>
+                    <p>Mensajes de empoderamiento personalizados y acciones concretas para tu mes</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>📘 Diseño cuidado</h3>
+                    <p>Documento inspirador, listo para imprimir o guardar, que querrás consultar siempre</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>⏰ Consulta cualquier mes</h3>
+                    <p>Pasado, presente o futuro: elige el mes que necesites para obtener claridad</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>✨ 100% personalizado</h3>
+                    <p>Cada palabra está escrita para ti, basada en tu carta natal única</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- POR QUÉ ES DIFERENTE -->
+        <div class="section-block">
+            <h2 class="section-title">¿Por qué es diferente?</h2>
+            <div class="section-content">
+                <p>Porque se trata de una <span class="highlight">herramienta inédita</span> que combina conocimiento profundo con innovación.</p>
+                <p>Tu Guía Lunar Personalizada utiliza un <strong>sistema de análisis exclusivo</strong> que detecta coincidencias energéticas únicas en tu vida. No se basa en métodos tradicionales ni fórmulas genéricas: cada palabra está escrita para ti.</p>
+                
+                <h3 style="color: var(--accent-gold); margin-top: 40px; margin-bottom: 20px; font-size: 1.5rem;">Lo que sentirás al leerla:</h3>
+                
+                <ul class="experience-list">
+                    <li>🌬️ Claridad emocional sobre lo que has vivido, lo que estás viviendo o lo que vivirás</li>
+                    <li>🌙 Sincronía perfecta entre tus decisiones y tu momento vital</li>
+                    <li>🌸 Motivación y enfoque para avanzar sin dudas</li>
+                </ul>
+
+                <p style="margin-top: 32px;">Cada lectura resuena con tu historia, tu energía presente y tu futuro. Es una <strong>experiencia personalizada de autoconocimiento, dirección y confianza.</strong></p>
+            </div>
+        </div>
+
+        <!-- QUÉ VAS A EXPERIMENTAR -->
+        <div class="section-block">
+            <h2 class="section-title">¿Qué vas a experimentar?</h2>
+            
+            <div class="quote-box">
+                "No es una predicción. Es una revelación de tu momento perfecto."
+            </div>
+
+            <div class="section-content">
+                <p style="margin-bottom: 32px;"><strong>Tu Guía Lunar puede mostrarte:</strong></p>
+                
+                <ul class="experience-list">
+                    <li>El portal emocional donde comienza tu próxima expansión</li>
+                    <li>El punto de inflexión que transformará tus relaciones o tu propósito</li>
+                    <li>La energía creativa que necesitas canalizar</li>
+                    <li>El renacimiento personal que marcará tu nuevo inicio</li>
+                </ul>
+
+                <p style="margin-top: 32px;">Cada lectura deja una sensación de <span class="highlight">claridad, calma y poder interior</span>. Las personas que la han recibido dicen que es "como si el universo les hablara directamente".</p>
+            </div>
+        </div>
+
+        <!-- TESTIMONIOS -->
+        <div class="section-block">
+            <h2 class="section-title">Experiencias testimoniales</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"La compré por curiosidad, sin imaginar que sería tan precisa. La guía señalaba una fecha exacta como favorable para concretar acuerdos importantes… y ese mismo día firmé el contrato que llevaba meses esperando. Fue tan claro y sincronizado que me dejó sin palabras. No es una lectura más, es una herramienta real que marca un antes y un después."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">C</div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Claudia R.</div>
+                            <div class="testimonial-location">Madrid, España 🇪🇸</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Mi Guía Lunar me indicó un período de apertura afectiva y coincidió exactamente con el momento en que conocí a la persona que hoy es mi pareja. No fue casualidad. Sentí que todo encajaba, como si por fin entendiera el porqué de mis tiempos. La recomiendo totalmente, porque te hace vivir tu vida con más conciencia y confianza."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">J</div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Javier M.</div>
+                            <div class="testimonial-location">Guadalajara, México 🇲🇽</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"La guía me ayudó a entender mis propios patrones emocionales. Había situaciones que se repetían una y otra vez, y en este informe lo vi con total claridad. Gracias a las recomendaciones pude soltar vínculos y actitudes que me hacían daño. Es una herramienta terapéutica y reveladora. Me cambió la forma de mirarme."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">L</div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Laura P.</div>
+                            <div class="testimonial-location">Bogotá, Colombia 🇨🇴</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"La compré como regalo para una amiga que estaba pasando un momento de dudas. Cuando la recibió, se emocionó hasta las lágrimas. Me dijo que nunca había leído algo tan personalizado, tan 'ella'. Es un regalo distinto, con alma. Ver su reacción fue el mejor testimonio de que esta guía tiene algo realmente especial."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">S</div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Sofía G.</div>
+                            <div class="testimonial-location">Buenos Aires, Argentina 🇦🇷</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CIERRE MOTIVACIONAL -->
+        <div class="section-block" style="text-align: center;">
+            <h2 class="section-title">Tu momento perfecto para decidir ya existe</h2>
+            <div class="section-content">
+                <p style="font-size: 1.25rem;"><strong>Solo necesitas verlo con claridad.</strong></p>
+                <p style="margin-top: 24px;">Tu Guía Lunar Personalizada te muestra ese mapa interno: las coordenadas emocionales que te ayudarán a avanzar con <span class="highlight">confianza, propósito y sincronía.</span></p>
+            </div>
+        </div>
+
+        <!-- FORMULARIO -->
         <form class="form-container" id="lunarForm">
             <h3 class="form-title">Tus Datos Personales</h3>
             
@@ -585,9 +876,10 @@
             </div>
         </form>
 
+        <!-- CONSULTA MES -->
         <div class="consultation-block">
-            <h3 class="consultation-title">Elige cuándo deseas hacer tu Consulta</h3>
-            <p class="consultation-subtitle">(Recuerda que puedes consultar el pasado también)</p>
+            <h3 class="consultation-title">¿Para qué mes deseas tu guía lunar?</h3>
+            <p class="consultation-subtitle">Puedes consultar cualquier mes: pasado, presente o futuro</p>
             
             <div class="consultation-grid">
                 <div class="form-group">
@@ -621,16 +913,17 @@
                 
                 <div class="form-group">
                     <label for="ano">Año *</label>
-                    <input type="number" id="ano" name="ano" required placeholder="Ej: 2024" min="1900" max="2030" form="lunarForm">
+                    <input type="number" id="ano" name="ano" required placeholder="Ej: 2025" min="1900" max="2030" form="lunarForm">
                 </div>
             </div>
         </div>
 
+        <!-- PRECIO Y PAGO -->
         <div class="form-container">
             <div class="delivery-info">
                 <h3>Entrega durante el transcurso del día</h3>
-                <p><strong>1.</strong> Tras confirmar tu pago, enviaremos Tu Guía Lunar Personalizada por email en el transcurso del día</p>
-                <p><strong>2.</strong> Tu informe incluirá análisis específicos y recomendaciones prácticas</p>
+                <p><strong>1.</strong> Tras confirmar tu pago, enviaremos Tu Guía Lunar Personalizada en PDF por email en el transcurso del día</p>
+                <p><strong>2.</strong> Tu informe incluirá análisis específicos, fechas clave y recomendaciones prácticas</p>
                 <p><strong>3.</strong> Cada guía se elabora individualmente para garantizar máxima precisión</p>
             </div>
 
@@ -656,6 +949,7 @@
         </div>
     </div>
 
+    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
             <div class="legal-links">
@@ -670,6 +964,7 @@
         </div>
     </footer>
 
+    <!-- COOKIE BANNER -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-content">
             <div class="cookie-text">
@@ -683,6 +978,7 @@
         </div>
     </div>
 
+    <!-- MODAL -->
     <div id="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; overflow-y: auto;">
         <div style="max-width: 800px; margin: 50px auto; background: var(--primary-blue); padding: 40px; border-radius: 20px; color: white; position: relative;">
             <button onclick="closeModal()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">&times;</button>
