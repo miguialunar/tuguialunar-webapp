@@ -191,6 +191,42 @@
             font-weight: 500;
         }
 
+        .cta-button-hero {
+            background: linear-gradient(45deg, var(--accent-gold), #FFD700);
+            color: var(--primary-blue);
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(242, 181, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 32px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(242, 181, 0, 0.6);
+            background: linear-gradient(45deg, #FFD700, var(--accent-gold));
+        }
+
+        .data-explanation {
+            background: rgba(45, 74, 124, 0.2);
+            border-left: 3px solid var(--accent-gold);
+            padding: 20px 24px;
+            margin-top: 32px;
+            margin-bottom: 24px;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+        }
+
         .section-block {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
@@ -670,6 +706,7 @@
             .hero-section { padding: 40px 24px; }
             .section-block { padding: 40px 24px; }
             .cta-row { flex-direction: column; gap: 16px; }
+            .cta-button-hero { font-size: 1.1rem; padding: 16px 32px; width: 100%; }
         }
     </style>
 </head>
@@ -694,10 +731,12 @@
             <h2>Una guía entre 8 y 12 páginas, creada especialmente para ti</h2>
             <p>Revela los <span class="highlight">momentos más poderosos del mes</span> para avanzar, transformar y abrir nuevas oportunidades. Más que una lectura, es un mapa emocional de precisión sorprendente, que te conecta con tu propio ritmo interno y te ayuda a decidir con confianza.</p>
             
+            <a href="#formulario" class="cta-button-hero">🌙 Quiero mi guía lunar ahora</a>
+            
             <div class="cta-row">
                 <div class="cta-item">
                     <span>✨</span>
-                    <span>Obtén tu guía personalizada hoy</span>
+                    <span>Personalizada para ti</span>
                 </div>
                 <div class="cta-item">
                     <span>📩</span>
@@ -790,7 +829,7 @@
             
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p class="testimonial-quote">"La compré por curiosidad, sin imaginar que sería tan precisa. La guía señalaba una fecha exacta como favorable para concretar acuerdos importantes… y ese mismo día firmé el contrato que llevaba meses esperando. Fue tan claro y sincronizado que me dejó sin palabras. No es una lectura más, es una herramienta real que marca un antes y un después."</p>
+                    <p class="testimonial-quote">"La pillé más por curiosidad que por otra cosa, pero tía... fue flipante. Había un día que decía que era súper favorable para cerrar temas importantes y justo ese día firmé el contrato que llevaba esperando meses. Literal, ese mismo día. Me quedé a cuadros. No sé cómo lo hace pero funciona, te lo juro."</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">C</div>
                         <div class="testimonial-info">
@@ -801,7 +840,18 @@
                 </div>
 
                 <div class="testimonial-card">
-                    <p class="testimonial-quote">"Mi Guía Lunar me indicó un período de apertura afectiva y coincidió exactamente con el momento en que conocí a la persona que hoy es mi pareja. No fue casualidad. Sentí que todo encajaba, como si por fin entendiera el porqué de mis tiempos. La recomiendo totalmente, porque te hace vivir tu vida con más conciencia y confianza."</p>
+                    <p class="testimonial-quote">"Me la compré cuando estaba hecha un lío con el trabajo y con todo, la verdad. Y cuando la leí fue como... joder, esto soy yo. Me ayudó una barbaridad a entender por qué me pasaba siempre lo mismo con según qué cosas. Dejé de dar vueltas a lo que no me servía y todo cambió. Es muy heavy pero en el buen sentido."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">M</div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">María L.</div>
+                            <div class="testimonial-location">Sevilla, España 🇪🇸</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"No mames, wey. La guía me decía que iba a ser un buen momento para conocer gente nueva y justo esa semana conocí a mi novia actual. Al principio pensé 'no puede ser', pero luego vi todo lo demás que decía y todo cuadraba. Ahora ya no tomo decisiones importantes sin checar mi guía. Es en serio."</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">J</div>
                         <div class="testimonial-info">
@@ -812,18 +862,7 @@
                 </div>
 
                 <div class="testimonial-card">
-                    <p class="testimonial-quote">"La guía me ayudó a entender mis propios patrones emocionales. Había situaciones que se repetían una y otra vez, y en este informe lo vi con total claridad. Gracias a las recomendaciones pude soltar vínculos y actitudes que me hacían daño. Es una herramienta terapéutica y reveladora. Me cambió la forma de mirarme."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">L</div>
-                        <div class="testimonial-info">
-                            <div class="testimonial-name">Laura P.</div>
-                            <div class="testimonial-location">Bogotá, Colombia 🇨🇴</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-quote">"La compré como regalo para una amiga que estaba pasando un momento de dudas. Cuando la recibió, se emocionó hasta las lágrimas. Me dijo que nunca había leído algo tan personalizado, tan 'ella'. Es un regalo distinto, con alma. Ver su reacción fue el mejor testimonio de que esta guía tiene algo realmente especial."</p>
+                    <p class="testimonial-quote">"Boluda, se la regalé a mi amiga que estaba re perdida con todo y cuando la leyó se largó a llorar. Me dijo 'Sofi, cómo puede ser tan yo esto, no lo puedo creer'. Nunca le habían dado un regalo tan personalizado. Ahora me piden todas que les consiga una. Es un re regalo diferente, te lo juro."</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">S</div>
                         <div class="testimonial-info">
@@ -846,7 +885,7 @@
 
         <!-- FORMULARIO -->
         <form class="form-container" id="lunarForm">
-            <h3 class="form-title">Tus Datos Personales</h3>
+            <h3 class="form-title" id="formulario">Tus Datos Personales</h3>
             
             <div class="form-grid">
                 <div class="form-group">
@@ -873,6 +912,11 @@
                     <label for="ciudadNacimiento">Ciudad de nacimiento *</label>
                     <input type="text" id="ciudadNacimiento" name="ciudadNacimiento" required placeholder="Ciudad, País">
                 </div>
+            </div>
+
+            <div class="data-explanation">
+                💫 <strong>¿Por qué necesitamos estos datos?</strong><br>
+                Tu guía lunar es totalmente personalizada y se adapta a tu fecha, hora y lugar de nacimiento. El mes y sitio que elijas a continuación nos permite crear un mapa emocional único para ese momento específico de tu vida, donde estés y cuando lo necesites.
             </div>
         </form>
 
@@ -1128,6 +1172,19 @@
                 stripeButton.addEventListener('click', function(e) {
                     e.preventDefault();
                     submitFormAndRedirect();
+                });
+            }
+
+            // Smooth scroll para el botón CTA
+            const ctaButton = document.querySelector('.cta-button-hero');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 });
             }
         });
