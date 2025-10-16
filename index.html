@@ -743,7 +743,7 @@
             <h2>Una guía entre 8 y 12 páginas, creada especialmente para ti</h2>
             <p>Revela los <span class="highlight">momentos más poderosos del mes</span> para avanzar, transformar y abrir nuevas oportunidades. Más que una lectura, es un mapa emocional de precisión sorprendente, que te conecta con tu propio ritmo interno y te ayuda a decidir con confianza.</p>
             
-            <a href="#formulario" class="cta-button-hero">🌙 Quiero mi guía lunar ahora</a>
+            <a href="#formulario" class="cta-button-hero" id="ctaHeroBtn">🌙 Quiero mi guía lunar ahora</a>
             
             <div class="cta-row">
                 <div class="cta-item">
@@ -1183,7 +1183,7 @@
             if (stripeButton) {
                 stripeButton.addEventListener('click', function(e) {
                     e.preventDefault();
-                    submitFormAndRedirect();
+                    checkFormAndSubmit();
                 });
             }
 
