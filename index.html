@@ -544,7 +544,7 @@
             font-size: 1.05rem;
         }
 
-        .stripe-button {
+        .stripe-button, .cta-button-main {
             background: linear-gradient(45deg, var(--accent-gold), #FFD700);
             color: var(--primary-blue);
             border: none;
@@ -565,16 +565,34 @@
             text-align: center;
         }
 
-        .stripe-button:hover {
+        .stripe-button:hover, .cta-button-main:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 32px rgba(242, 181, 0, 0.6);
             background: linear-gradient(45deg, #FFD700, var(--accent-gold));
         }
 
-        .stripe-button:disabled {
+        .stripe-button:disabled, .cta-button-main:disabled {
             opacity: 0.6;
             cursor: not-allowed;
             transform: none;
+        }
+
+        .payment-info {
+            text-align: center;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .stripe-logo {
+            height: 20px;
+            vertical-align: middle;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
         }
 
         footer {
@@ -972,6 +990,15 @@
                     <input type="number" id="ano" name="ano" required placeholder="Ej: 2025" min="1900" max="2030" form="lunarForm">
                 </div>
             </div>
+
+            <a href="#" class="cta-button-main" id="ctaMainBtn">Envía, Paga y Recibe Tu Guía Lunar</a>
+            
+            <div class="payment-info">
+                <span>🔒 Pago seguro realizado by</span>
+                <svg class="stripe-logo" viewBox="0 0 60 25" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M59.64 14.28h-8.06c.19 1.93 1.6 2.55 3.2 2.55 1.64 0 2.96-.37 4.05-.95v3.32a8.33 8.33 0 0 1-4.56 1.1c-4.01 0-6.83-2.5-6.83-7.48 0-4.19 2.39-7.52 6.3-7.52 3.92 0 5.96 3.28 5.96 7.5 0 .4-.04 1.26-.06 1.48zm-5.92-5.62c-1.03 0-2.17.73-2.17 2.58h4.25c0-1.85-1.07-2.58-2.08-2.58zM40.95 20.3c-1.44 0-2.32-.6-2.9-1.04l-.02 4.63-4.12.87V5.57h3.76l.08 1.02a4.7 4.7 0 0 1 3.23-1.29c2.9 0 5.62 2.6 5.62 7.4 0 5.23-2.7 7.6-5.65 7.6zM40 8.95c-.95 0-1.54.34-1.97.81l.02 6.12c.4.44.98.78 1.95.78 1.52 0 2.54-1.65 2.54-3.87 0-2.15-1.04-3.84-2.54-3.84zM28.24 5.57h4.13v14.44h-4.13V5.57zm0-4.7L32.37 0v3.36l-4.13.88V.88zm-4.32 9.35v9.79H19.8V5.57h3.7l.12 1.22c1-1.77 3.07-1.41 3.62-1.22v3.79c-.52-.17-2.29-.43-3.32.86zm-8.55 4.72c0 2.43 2.6 1.68 3.12 1.46v3.36c-.55.3-1.54.54-2.89.54a4.15 4.15 0 0 1-4.27-4.24l.01-13.17 4.02-.86v3.54h3.14V9.1h-3.13v5.85zm-4.91.7c0 2.97-2.31 4.66-5.73 4.66a11.2 11.2 0 0 1-4.46-.93v-3.93c1.38.75 3.1 1.31 4.46 1.31.92 0 1.53-.24 1.53-1C6.26 13.77 0 14.51 0 9.95 0 7.04 2.28 5.3 5.62 5.3c1.36 0 2.72.2 4.09.75v3.88a9.23 9.23 0 0 0-4.1-1.06c-.86 0-1.44.25-1.44.9 0 1.85 6.29.97 6.29 5.88z" fill="currentColor"/>
+                </svg>
+            </div>
         </div>
 
         <!-- PRECIO Y PAGO -->
@@ -1016,7 +1043,7 @@
             </div>
             <p>&copy; 2025 Tu Guía Lunar. Conectando almas con el cosmos.</p>
             <p>Elaborado con precisión y amor lunar</p>
-            <p>Contacto: astrocuantica8@gmail.com</p>
+            <p>Contacto: <a href="mailto:contacto@tuguialunar.com" style="color: var(--accent-gold); text-decoration: none;">contacto@tuguialunar.com</a></p>
         </div>
     </footer>
 
@@ -1082,10 +1109,10 @@
             const content = document.getElementById('modalContent');
             
             const contents = {
-                privacy: `<h2>Política de Privacidad</h2><p>En Tu Guía Lunar, respetamos tu privacidad y nos comprometemos a proteger tus datos personales.</p><h3>Datos que recopilamos:</h3><ul><li>Nombre completo</li><li>Dirección de correo electrónico</li><li>Fecha y hora de nacimiento</li><li>Ciudad de nacimiento</li><li>Información sobre la consulta solicitada</li></ul><h3>Uso de los datos:</h3><p>Utilizamos tus datos exclusivamente para:</p><ul><li>Elaborar tu guía lunar personalizada</li><li>Comunicarnos contigo sobre tu solicitud</li><li>Procesar el pago correspondiente</li></ul><h3>Protección de datos:</h3><p>Tus datos están protegidos y no se comparten con terceros sin tu consentimiento.</p><h3>Derechos:</h3><p>Tienes derecho a acceder, rectificar o eliminar tus datos contactando a astrocuantica8@gmail.com</p>`,
+                privacy: `<h2>Política de Privacidad</h2><p>En Tu Guía Lunar, respetamos tu privacidad y nos comprometemos a proteger tus datos personales.</p><h3>Datos que recopilamos:</h3><ul><li>Nombre completo</li><li>Dirección de correo electrónico</li><li>Fecha y hora de nacimiento</li><li>Ciudad de nacimiento</li><li>Información sobre la consulta solicitada</li></ul><h3>Uso de los datos:</h3><p>Utilizamos tus datos exclusivamente para:</p><ul><li>Elaborar tu guía lunar personalizada</li><li>Comunicarnos contigo sobre tu solicitud</li><li>Procesar el pago correspondiente</li></ul><h3>Protección de datos:</h3><p>Tus datos están protegidos y no se comparten con terceros sin tu consentimiento.</p><h3>Derechos:</h3><p>Tienes derecho a acceder, rectificar o eliminar tus datos contactando a <a href="mailto:contacto@tuguialunar.com" style="color: var(--accent-gold);">contacto@tuguialunar.com</a></p>`,
                 terms: `<h2>Términos y Condiciones</h2><h3>1. Servicios</h3><p>Tu Guía Lunar ofrece guías astrológicas personalizadas para fines de entretenimiento y autoconocimiento.</p><h3>2. Precio y Pago</h3><p>El precio actual es de 5€ por guía (pago único). Los precios pueden cambiar sin previo aviso.</p><h3>3. Entrega</h3><p>Las guías se entregan en formato PDF por correo electrónico durante el transcurso del día.</p><h3>4. Política de Reembolsos</h3><p>Debido a la naturaleza personalizada del servicio, no se ofrecen reembolsos una vez entregada la guía.</p><h3>5. Uso del Servicio</h3><p>Las guías son para uso personal y no deben redistribuirse sin autorización.</p><h3>6. Limitación de Responsabilidad</h3><p>Nuestras guías son para fines de entretenimiento y no constituyen asesoramiento profesional.</p>`,
-                legal: `<h2>Aviso Legal</h2><h3>Información de la empresa:</h3><p>Denominación: Tu Guía Lunar<br>Email: astrocuantica8@gmail.com<br>Sitio web: tuguialunar.com</p><h3>Naturaleza del servicio:</h3><p>Tu Guía Lunar ofrece servicios de consultoría astrológica y guías personalizadas con fines de entretenimiento y desarrollo personal.</p><h3>Propiedad intelectual:</h3><p>Todo el contenido de este sitio web está protegido por derechos de autor. Las guías generadas son propiedad exclusiva del cliente.</p><h3>Jurisdicción:</h3><p>Este sitio web está sujeto a la legislación española y europea en materia de protección de datos y comercio electrónico.</p>`,
-                cookies: `<h2>Política de Cookies</h2><h3>¿Qué son las cookies?</h3><p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Nos ayudan a recordar tus preferencias y mejorar tu experiencia de navegación.</p><h3>Tipos de cookies que utilizamos:</h3><ul><li><strong>Cookies técnicas (necesarias):</strong> Esenciales para el funcionamiento básico del sitio web. No pueden desactivarse.</li><li><strong>Cookies de preferencias:</strong> Recordamos tus preferencias sobre cookies y configuración del sitio.</li><li><strong>Cookies analíticas:</strong> Nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web mediante la recopilación y comunicación de información de forma anónima.</li><li><strong>Cookies funcionales:</strong> Permiten que el sitio web proporcione una funcionalidad y personalización mejoradas.</li></ul><h3>Cookies específicas:</h3><ul><li><strong>cookiesAccepted:</strong> Almacena tu preferencia sobre el uso de cookies (técnica/necesaria)</li><li><strong>EmailJS:</strong> Para el funcionamiento del formulario de contacto (funcional)</li></ul><h3>Gestión de cookies:</h3><p>Puedes controlar y/o eliminar las cookies como desees. Puedes eliminar todas las cookies que ya están en tu ordenador y puedes configurar la mayoría de navegadores para evitar que se instalen.</p><p><strong>En tu navegador:</strong></p><ul><li>Chrome: Configuración > Privacidad y seguridad > Cookies</li><li>Firefox: Preferencias > Privacidad y seguridad</li><li>Safari: Preferencias > Privacidad</li><li>Edge: Configuración > Privacidad, búsqueda y servicios</li></ul><h3>Consecuencias de deshabilitar cookies:</h3><p>Si desactivas las cookies, es posible que no puedas utilizar ciertas funciones de nuestro sitio web, como el formulario de contacto.</p><h3>Consentimiento:</h3><p>Al continuar navegando por nuestro sitio web sin cambiar la configuración de cookies de tu navegador, aceptas nuestro uso de cookies según se describe en esta política.</p><h3>Actualizaciones:</h3><p>Podemos actualizar esta Política de Cookies ocasionalmente. Te recomendamos revisar esta página periódicamente para estar informado sobre cómo utilizamos las cookies.</p><h3>Contacto:</h3><p>Si tienes preguntas sobre nuestra Política de Cookies, puedes contactarnos en: astrocuantica8@gmail.com</p><p><em>Última actualización: Enero 2025</em></p>`
+                legal: `<h2>Aviso Legal</h2><h3>Información de la empresa:</h3><p>Denominación: Tu Guía Lunar<br>Email: <a href="mailto:contacto@tuguialunar.com" style="color: var(--accent-gold);">contacto@tuguialunar.com</a><br>Sitio web: tuguialunar.com</p><h3>Naturaleza del servicio:</h3><p>Tu Guía Lunar ofrece servicios de consultoría astrológica y guías personalizadas con fines de entretenimiento y desarrollo personal.</p><h3>Propiedad intelectual:</h3><p>Todo el contenido de este sitio web está protegido por derechos de autor. Las guías generadas son propiedad exclusiva del cliente.</p><h3>Jurisdicción:</h3><p>Este sitio web está sujeto a la legislación española y europea en materia de protección de datos y comercio electrónico.</p>`,
+                cookies: `<h2>Política de Cookies</h2><h3>¿Qué son las cookies?</h3><p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Nos ayudan a recordar tus preferencias y mejorar tu experiencia de navegación.</p><h3>Tipos de cookies que utilizamos:</h3><ul><li><strong>Cookies técnicas (necesarias):</strong> Esenciales para el funcionamiento básico del sitio web. No pueden desactivarse.</li><li><strong>Cookies de preferencias:</strong> Recordamos tus preferencias sobre cookies y configuración del sitio.</li><li><strong>Cookies analíticas:</strong> Nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web mediante la recopilación y comunicación de información de forma anónima.</li><li><strong>Cookies funcionales:</strong> Permiten que el sitio web proporcione una funcionalidad y personalización mejoradas.</li></ul><h3>Cookies específicas:</h3><ul><li><strong>cookiesAccepted:</strong> Almacena tu preferencia sobre el uso de cookies (técnica/necesaria)</li><li><strong>EmailJS:</strong> Para el funcionamiento del formulario de contacto (funcional)</li></ul><h3>Gestión de cookies:</h3><p>Puedes controlar y/o eliminar las cookies como desees. Puedes eliminar todas las cookies que ya están en tu ordenador y puedes configurar la mayoría de navegadores para evitar que se instalen.</p><p><strong>En tu navegador:</strong></p><ul><li>Chrome: Configuración > Privacidad y seguridad > Cookies</li><li>Firefox: Preferencias > Privacidad y seguridad</li><li>Safari: Preferencias > Privacidad</li><li>Edge: Configuración > Privacidad, búsqueda y servicios</li></ul><h3>Consecuencias de deshabilitar cookies:</h3><p>Si desactivas las cookies, es posible que no puedas utilizar ciertas funciones de nuestro sitio web, como el formulario de contacto.</p><h3>Consentimiento:</h3><p>Al continuar navegando por nuestro sitio web sin cambiar la configuración de cookies de tu navegador, aceptas nuestro uso de cookies según se describe en esta política.</p><h3>Actualizaciones:</h3><p>Podemos actualizar esta Política de Cookies ocasionalmente. Te recomendamos revisar esta página periódicamente para estar informado sobre cómo utilizamos las cookies.</p><h3>Contacto:</h3><p>Si tienes preguntas sobre nuestra Política de Cookies, puedes contactarnos en: <a href="mailto:contacto@tuguialunar.com" style="color: var(--accent-gold);">contacto@tuguialunar.com</a></p><p><em>Última actualización: Enero 2025</em></p>`
             };
             
             content.innerHTML = contents[type];
@@ -1182,6 +1209,15 @@
             const stripeButton = document.getElementById('stripeBtn');
             if (stripeButton) {
                 stripeButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    checkFormAndSubmit();
+                });
+            }
+
+            // Botón principal del consultation block
+            const ctaMainBtn = document.getElementById('ctaMainBtn');
+            if (ctaMainBtn) {
+                ctaMainBtn.addEventListener('click', function(e) {
                     e.preventDefault();
                     checkFormAndSubmit();
                 });
