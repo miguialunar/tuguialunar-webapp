@@ -53,6 +53,7 @@
             --glass-border: rgba(255, 255, 255, 0.15);
             --shadow-soft: 0 8px 32px rgba(0, 24, 71, 0.5);
             --shadow-strong: 0 12px 40px rgba(0, 24, 71, 0.6);
+            --promo-gradient: linear-gradient(135deg, #FF1744 0%, #FF6B9D 50%, #FFC1E3 100%);
         }
 
         * {
@@ -544,6 +545,85 @@
             font-size: 1.05rem;
         }
 
+        /* PROMO HEART BUTTON STYLES */
+        .promo-heart-container {
+            text-align: center;
+            margin: 32px 0 24px 0;
+        }
+
+        .promo-heart-button {
+            display: inline-block;
+            position: relative;
+            background: var(--promo-gradient);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.15rem;
+            box-shadow: 0 8px 32px rgba(255, 23, 68, 0.5);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: pulse-promo 2s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        .promo-heart-button:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(255, 23, 68, 0.7);
+        }
+
+        .promo-heart-icon {
+            display: inline-block;
+            font-size: 1.4rem;
+            margin-right: 8px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10% { transform: scale(1.15); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.15); }
+            40% { transform: scale(1); }
+        }
+
+        @keyframes pulse-promo {
+            0%, 100% { box-shadow: 0 8px 32px rgba(255, 23, 68, 0.5); }
+            50% { box-shadow: 0 8px 32px rgba(255, 107, 157, 0.8); }
+        }
+
+        .promo-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-left: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .promo-details {
+            margin-top: 16px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
+        }
+
+        .promo-validity {
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .promo-currencies {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-style: italic;
+        }
+
         .stripe-button, .cta-button-main {
             background: linear-gradient(45deg, var(--accent-gold), #FFD700);
             color: var(--primary-blue);
@@ -737,6 +817,8 @@
             .section-block { padding: 40px 24px; }
             .cta-row { flex-direction: column; gap: 16px; }
             .cta-button-hero { font-size: 1.1rem; padding: 16px 32px; width: 100%; }
+            .promo-heart-button { font-size: 1.05rem; padding: 18px 32px; }
+            .promo-badge { display: block; margin: 8px 0 0 0; }
         }
     </style>
 </head>
@@ -991,6 +1073,19 @@
                 </div>
             </div>
 
+            <!-- PROMO HEART BUTTON 1 -->
+            <div class="promo-heart-container">
+                <a href="https://buy.stripe.com/7sYaEP9A287cbmybgeejK01" class="promo-heart-button">
+                    <span class="promo-heart-icon">💝</span>
+                    <span>Oferta Especial: 2€</span>
+                    <span class="promo-badge">60% OFF</span>
+                </a>
+                <div class="promo-details">
+                    <div class="promo-validity">⏰ Oferta válida hasta el 11/11/25</div>
+                    <div class="promo-currencies">(Equivalente: 40 MXN · 2,000 ARS · 2 USD · 50 UYU · 2,000 CLP)</div>
+                </div>
+            </div>
+
             <a href="https://buy.stripe.com/dRm4grh2u4V00HUfwuejK00" class="cta-button-main" id="ctaMainBtn">Envía, Paga y Recibe Tu Guía Lunar</a>
             
             <div class="payment-info">
@@ -1013,6 +1108,19 @@
             <div class="price-section">
                 <div class="price">5€</div>
                 <div class="price-description">Precio especial de lanzamiento (pago único)</div>
+            </div>
+
+            <!-- PROMO HEART BUTTON 2 -->
+            <div class="promo-heart-container">
+                <a href="https://buy.stripe.com/7sYaEP9A287cbmybgeejK01" class="promo-heart-button">
+                    <span class="promo-heart-icon">💝</span>
+                    <span>Oferta Especial: 2€</span>
+                    <span class="promo-badge">60% OFF</span>
+                </a>
+                <div class="promo-details">
+                    <div class="promo-validity">⏰ Oferta válida hasta el 11/11/25</div>
+                    <div class="promo-currencies">(Equivalente: 40 MXN · 2,000 ARS · 2 USD · 50 UYU · 2,000 CLP)</div>
+                </div>
             </div>
 
             <a href="https://buy.stripe.com/dRm4grh2u4V00HUfwuejK00" class="stripe-button" id="stripeBtn">OBTENER MI GUÍA LUNAR AHORA</a>
