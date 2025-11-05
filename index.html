@@ -624,6 +624,16 @@
             font-style: italic;
         }
 
+        .promo-legal {
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.75);
+            font-style: italic;
+            line-height: 1.5;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         .stripe-button, .cta-button-main {
             background: linear-gradient(45deg, var(--accent-gold), #FFD700);
             color: var(--primary-blue);
@@ -1075,14 +1085,15 @@
 
             <!-- PROMO HEART BUTTON 1 -->
             <div class="promo-heart-container">
-                <a href="https://buy.stripe.com/7sYaEP9A287cbmybgeejK01" class="promo-heart-button">
+                <a href="#" class="promo-heart-button" id="promoBtn1" onclick="checkFormAndRedirectPromo(event)">
                     <span class="promo-heart-icon">💝</span>
-                    <span>Oferta Especial: 2€</span>
+                    <span>Oferta Especial: 2€*</span>
                     <span class="promo-badge">60% OFF</span>
                 </a>
                 <div class="promo-details">
-                    <div class="promo-validity">⏰ Oferta válida hasta el 11/11/25</div>
+                    <div class="promo-validity">⏰ Oferta válida hasta el 11/11/25*</div>
                     <div class="promo-currencies">(Equivalente: 40 MXN · 2,000 ARS · 2 USD · 50 UYU · 2,000 CLP)</div>
+                    <div class="promo-legal">*Promoción Día del Soltero. 2€ por cada Guía Lunar. Promoción válida hasta el 11-11-25 o hasta alcanzar un máximo de 30 guías personalizadas en total campaña.</div>
                 </div>
             </div>
 
@@ -1112,14 +1123,15 @@
 
             <!-- PROMO HEART BUTTON 2 -->
             <div class="promo-heart-container">
-                <a href="https://buy.stripe.com/7sYaEP9A287cbmybgeejK01" class="promo-heart-button">
+                <a href="#" class="promo-heart-button" id="promoBtn2" onclick="checkFormAndRedirectPromo(event)">
                     <span class="promo-heart-icon">💝</span>
-                    <span>Oferta Especial: 2€</span>
+                    <span>Oferta Especial: 2€*</span>
                     <span class="promo-badge">60% OFF</span>
                 </a>
                 <div class="promo-details">
-                    <div class="promo-validity">⏰ Oferta válida hasta el 11/11/25</div>
+                    <div class="promo-validity">⏰ Oferta válida hasta el 11/11/25*</div>
                     <div class="promo-currencies">(Equivalente: 40 MXN · 2,000 ARS · 2 USD · 50 UYU · 2,000 CLP)</div>
+                    <div class="promo-legal">*Promoción Día del Soltero. 2€ por cada Guía Lunar. Promoción válida hasta el 11-11-25 o hasta alcanzar un máximo de 30 guías personalizadas en total campaña.</div>
                 </div>
             </div>
 
@@ -1301,6 +1313,75 @@
 
         function checkFormAndSubmit() {
             submitFormAndRedirect();
+        }
+
+        function checkFormAndRedirectPromo(event) {
+            event.preventDefault();
+            
+            const requiredFields = [
+                'nombre', 'email', 'fechaNacimiento', 'horaNacimiento', 
+                'ciudadNacimiento', 'mes', 'pais', 'ciudad', 'ano'
+            ];
+            
+            let allFieldsValid = true;
+            const missingFields = [];
+            
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    allFieldsValid = false;
+                    missingFields.push(field.previousElementSibling.textContent.replace(' *', ''));
+                    field.style.borderColor = '#ff4444';
+                } else {
+                    field.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                }
+            });
+            
+            if (!allFieldsValid) {
+                alert('Por favor completa todos los campos obligatorios antes de continuar con la promoción:\n\n' + missingFields.join('\n'));
+                // Scroll to form
+                document.getElementById('formulario').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                return false;
+            }
+            
+            // Si todos los campos están completos, enviar datos y redirigir a Stripe promo
+            const loading = document.getElementById('loading');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            loading.style.display = 'block';
+            
+            const templateParams = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                fechaNacimiento: document.getElementById('fechaNacimiento').value,
+                horaNacimiento: document.getElementById('horaNacimiento').value,
+                ciudadNacimiento: document.getElementById('ciudadNacimiento').value,
+                mes: document.getElementById('mes').value,
+                pais: document.getElementById('pais').value,
+                ciudad: document.getElementById('ciudad').value,
+                ano: document.getElementById('ano').value,
+                mesConsulta: document.getElementById('mes').value + ' ' + document.getElementById('ano').value + ', ' + document.getElementById('ciudad').value + ', ' + document.getElementById('pais').value,
+                time: new Date().toLocaleString('es-ES'),
+                promo: 'Día del Soltero - 2€'
+            };
+            
+            emailjs.send('service_tk5wprp', 'template_hd3yx8p', templateParams)
+                .then(function(response) {
+                    loading.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        window.location.href = 'https://buy.stripe.com/7sYaEP9A287cbmybgeejK01';
+                    }, 2000);
+                })
+                .catch(function(error) {
+                    loading.style.display = 'none';
+                    errorMessage.style.display = 'block';
+                    console.error('Error:', error);
+                });
         }
 
         document.addEventListener('DOMContentLoaded', function() {
