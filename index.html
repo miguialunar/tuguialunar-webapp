@@ -53,7 +53,6 @@
             --glass-border: rgba(255, 255, 255, 0.15);
             --shadow-soft: 0 8px 32px rgba(0, 24, 71, 0.5);
             --shadow-strong: 0 12px 40px rgba(0, 24, 71, 0.6);
-            --promo-gradient: linear-gradient(135deg, #FF1744 0%, #FF6B9D 50%, #FFC1E3 100%);
         }
 
         * {
@@ -522,6 +521,14 @@
             color: rgba(255, 255, 255, 0.9);
             font-size: 1.2rem;
             font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .price-equivalents {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            font-style: italic;
+            margin-top: 16px;
         }
 
         .delivery-info {
@@ -543,95 +550,6 @@
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 12px;
             font-size: 1.05rem;
-        }
-
-        /* PROMO HEART BUTTON STYLES */
-        .promo-heart-container {
-            text-align: center;
-            margin: 32px 0 24px 0;
-        }
-
-        .promo-heart-button {
-            display: inline-block;
-            position: relative;
-            background: var(--promo-gradient);
-            color: white;
-            padding: 20px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.15rem;
-            box-shadow: 0 8px 32px rgba(255, 23, 68, 0.5);
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            animation: pulse-promo 2s ease-in-out infinite;
-            cursor: pointer;
-        }
-
-        .promo-heart-button:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 12px 40px rgba(255, 23, 68, 0.7);
-        }
-
-        .promo-heart-icon {
-            display: inline-block;
-            font-size: 1.4rem;
-            margin-right: 8px;
-            animation: heartbeat 1.5s ease-in-out infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            10% { transform: scale(1.15); }
-            20% { transform: scale(1); }
-            30% { transform: scale(1.15); }
-            40% { transform: scale(1); }
-        }
-
-        @keyframes pulse-promo {
-            0%, 100% { box-shadow: 0 8px 32px rgba(255, 23, 68, 0.5); }
-            50% { box-shadow: 0 8px 32px rgba(255, 107, 157, 0.8); }
-        }
-
-        .promo-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-left: 8px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .promo-details {
-            margin-top: 16px;
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.95);
-            line-height: 1.6;
-        }
-
-        .promo-validity {
-            font-weight: 600;
-            color: white;
-            margin-bottom: 8px;
-        }
-
-        .promo-currencies {
-            font-size: 0.88rem;
-            color: rgba(255, 255, 255, 0.85);
-            font-style: italic;
-        }
-
-        .promo-legal {
-            margin-top: 12px;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.75);
-            font-style: italic;
-            line-height: 1.5;
-            padding-top: 8px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .stripe-button, .cta-button-main {
@@ -827,8 +745,6 @@
             .section-block { padding: 40px 24px; }
             .cta-row { flex-direction: column; gap: 16px; }
             .cta-button-hero { font-size: 1.1rem; padding: 16px 32px; width: 100%; }
-            .promo-heart-button { font-size: 1.05rem; padding: 18px 32px; }
-            .promo-badge { display: block; margin: 8px 0 0 0; }
         }
     </style>
 </head>
@@ -1083,20 +999,6 @@
                 </div>
             </div>
 
-            <!-- PROMO HEART BUTTON 1 -->
-            <div class="promo-heart-container">
-                <a href="#" class="promo-heart-button" id="promoBtn1" onclick="checkFormAndRedirectPromo(event)">
-                    <span class="promo-heart-icon">💝</span>
-                    <span>Oferta Especial: 2€*</span>
-                    <span class="promo-badge">60% OFF</span>
-                </a>
-                <div class="promo-details">
-                    <div class="promo-validity">⏰ Oferta válida hasta el 11/11/25*</div>
-                    <div class="promo-currencies">(Equivalente: 40 MXN · 2,000 ARS · 2 USD · 50 UYU · 2,000 CLP)</div>
-                    <div class="promo-legal">*Promoción Día del Soltero. 2€ por cada Guía Lunar. Promoción válida hasta el 11-11-25 o hasta alcanzar un máximo de 30 guías personalizadas en total campaña.</div>
-                </div>
-            </div>
-
             <a href="https://buy.stripe.com/dRm4grh2u4V00HUfwuejK00" class="cta-button-main" id="ctaMainBtn">Envía, Paga y Recibe Tu Guía Lunar</a>
             
             <div class="payment-info">
@@ -1119,20 +1021,7 @@
             <div class="price-section">
                 <div class="price">5€</div>
                 <div class="price-description">Precio especial de lanzamiento (pago único)</div>
-            </div>
-
-            <!-- PROMO HEART BUTTON 2 -->
-            <div class="promo-heart-container">
-                <a href="#" class="promo-heart-button" id="promoBtn2" onclick="checkFormAndRedirectPromo(event)">
-                    <span class="promo-heart-icon">💝</span>
-                    <span>Oferta Especial: 2€*</span>
-                    <span class="promo-badge">60% OFF</span>
-                </a>
-                <div class="promo-details">
-                    <div class="promo-validity">⏰ Oferta válida hasta el 11/11/25*</div>
-                    <div class="promo-currencies">(Equivalente: 40 MXN · 2,000 ARS · 2 USD · 50 UYU · 2,000 CLP)</div>
-                    <div class="promo-legal">*Promoción Día del Soltero. 2€ por cada Guía Lunar. Promoción válida hasta el 11-11-25 o hasta alcanzar un máximo de 30 guías personalizadas en total campaña.</div>
-                </div>
+                <div class="price-equivalents">(Equivalente: 100 MXN · 5,000 ARS · 5 USD · 125 UYU · 5,000 CLP)</div>
             </div>
 
             <a href="https://buy.stripe.com/dRm4grh2u4V00HUfwuejK00" class="stripe-button" id="stripeBtn">OBTENER MI GUÍA LUNAR AHORA</a>
@@ -1313,75 +1202,6 @@
 
         function checkFormAndSubmit() {
             submitFormAndRedirect();
-        }
-
-        function checkFormAndRedirectPromo(event) {
-            event.preventDefault();
-            
-            const requiredFields = [
-                'nombre', 'email', 'fechaNacimiento', 'horaNacimiento', 
-                'ciudadNacimiento', 'mes', 'pais', 'ciudad', 'ano'
-            ];
-            
-            let allFieldsValid = true;
-            const missingFields = [];
-            
-            requiredFields.forEach(fieldId => {
-                const field = document.getElementById(fieldId);
-                if (!field.value.trim()) {
-                    allFieldsValid = false;
-                    missingFields.push(field.previousElementSibling.textContent.replace(' *', ''));
-                    field.style.borderColor = '#ff4444';
-                } else {
-                    field.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                }
-            });
-            
-            if (!allFieldsValid) {
-                alert('Por favor completa todos los campos obligatorios antes de continuar con la promoción:\n\n' + missingFields.join('\n'));
-                // Scroll to form
-                document.getElementById('formulario').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                return false;
-            }
-            
-            // Si todos los campos están completos, enviar datos y redirigir a Stripe promo
-            const loading = document.getElementById('loading');
-            const successMessage = document.getElementById('successMessage');
-            const errorMessage = document.getElementById('errorMessage');
-            
-            successMessage.style.display = 'none';
-            errorMessage.style.display = 'none';
-            loading.style.display = 'block';
-            
-            const templateParams = {
-                nombre: document.getElementById('nombre').value,
-                email: document.getElementById('email').value,
-                fechaNacimiento: document.getElementById('fechaNacimiento').value,
-                horaNacimiento: document.getElementById('horaNacimiento').value,
-                ciudadNacimiento: document.getElementById('ciudadNacimiento').value,
-                mes: document.getElementById('mes').value,
-                pais: document.getElementById('pais').value,
-                ciudad: document.getElementById('ciudad').value,
-                ano: document.getElementById('ano').value,
-                mesConsulta: document.getElementById('mes').value + ' ' + document.getElementById('ano').value + ', ' + document.getElementById('ciudad').value + ', ' + document.getElementById('pais').value,
-                time: new Date().toLocaleString('es-ES'),
-                promo: 'Día del Soltero - 2€'
-            };
-            
-            emailjs.send('service_tk5wprp', 'template_hd3yx8p', templateParams)
-                .then(function(response) {
-                    loading.style.display = 'none';
-                    successMessage.style.display = 'block';
-                    
-                    setTimeout(() => {
-                        window.location.href = 'https://buy.stripe.com/7sYaEP9A287cbmybgeejK01';
-                    }, 2000);
-                })
-                .catch(function(error) {
-                    loading.style.display = 'none';
-                    errorMessage.style.display = 'block';
-                    console.error('Error:', error);
-                });
         }
 
         document.addEventListener('DOMContentLoaded', function() {
