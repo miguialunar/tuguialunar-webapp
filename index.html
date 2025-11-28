@@ -290,27 +290,18 @@
             line-height: 1.8;
         }
 
-        .currency-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 16px;
-            margin-top: 20px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
         .currency-item {
             background: rgba(255, 255, 255, 0.1);
             padding: 12px 16px;
             border-radius: 12px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             font-weight: 600;
             font-size: 1.05rem;
             transition: transform 0.2s ease;
+            margin-top: 16px;
         }
 
         .currency-item:hover {
@@ -689,7 +680,6 @@
             .form-grid { grid-template-columns: 1fr; gap: 20px; }
             .price { font-size: 2.5rem; }
             .stripe-button { font-size: 1.15rem; padding: 18px 40px; width: 90%; }
-            .currency-grid { grid-template-columns: repeat(2, 1fr); }
             .legal-links { flex-direction: column; gap: 16px; }
             .cookie-content { flex-direction: column; text-align: center; }
             .testimonials-grid { grid-template-columns: 1fr; }
@@ -803,47 +793,6 @@
                 </div>
             </div>
 
-            <div class="price-section">
-                <div class="price">10€</div>
-                <div class="price-description">Pago único • Entrega en el día</div>
-                <div class="price-equivalents">
-                    💱 <strong>Equivalente aproximado:</strong>
-                    <div class="currency-grid">
-                        <div class="currency-item">
-                            <span class="flag">🇦🇷</span>
-                            <span>10.600 ARS</span>
-                        </div>
-                        <div class="currency-item">
-                            <span class="flag">🇨🇱</span>
-                            <span>10.000 CLP</span>
-                        </div>
-                        <div class="currency-item">
-                            <span class="flag">🇨🇴</span>
-                            <span>45.000 COP</span>
-                        </div>
-                        <div class="currency-item">
-                            <span class="flag">🇺🇸</span>
-                            <span>10 USD</span>
-                        </div>
-                        <div class="currency-item">
-                            <span class="flag">🇺🇾</span>
-                            <span>440 UYU</span>
-                        </div>
-                        <div class="currency-item">
-                            <span class="flag">🇵🇪</span>
-                            <span>38 PEN</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="delivery-info">
-                <h3>⚡ Entrega rápida y personalizada</h3>
-                <p><strong>1.</strong> Completa el formulario y confirma tu pago seguro</p>
-                <p><strong>2.</strong> Tu guía se elabora individualmente para máxima precisión</p>
-                <p><strong>3.</strong> Recibes tu documento HTML por email durante el transcurso del día</p>
-            </div>
-
             <button type="button" class="stripe-button" id="stripeBtn">🌙 Enviar y Pagar Ahora</button>
             
             <div class="payment-info">
@@ -864,6 +813,25 @@
 
             <div class="error-message" id="errorMessage">
                 ❌ Error al procesar tus datos. Por favor, inténtalo de nuevo.
+            </div>
+
+            <div class="price-section">
+                <div class="price">10€</div>
+                <div class="price-description">Pago único • Entrega en el día</div>
+                <div class="price-equivalents">
+                    💱 <strong>Equivalente aproximado:</strong>
+                    <div class="currency-item">
+                        <span class="flag">🇦🇷</span>
+                        <span>10.600 ARS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="delivery-info">
+                <h3>⚡ Entrega rápida y personalizada</h3>
+                <p><strong>1.</strong> Completa el formulario y confirma tu pago seguro</p>
+                <p><strong>2.</strong> Tu guía se elabora individualmente para máxima precisión</p>
+                <p><strong>3.</strong> Recibes tu documento HTML por email durante el transcurso del día</p>
             </div>
         </form>
 
@@ -1099,7 +1067,7 @@
                     successMessage.style.display = 'block';
                     
                     setTimeout(() => {
-                        window.location.href = 'https://buy.stripe.com/dRm4grh2u4V00HUfwuejK00';
+                        window.location.href = 'https://buy.stripe.com/fZu28jaE69bggGSacaejK02';
                     }, 2000);
                 })
                 .catch(function(error) {
