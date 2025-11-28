@@ -35,7 +35,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="zT8Nrsg3csrvDJI2iI8IIV2SnfjwTG4JK2ix2eT38-M" />
     <title>Tu Guía Lunar Personalizada - Tu brújula emocional para decidir con claridad</title>
-    <meta name="description" content="Guía lunar personalizada en PDF. Descubre tus fechas clave y portales emocionales del mes. Documento de 8-12 páginas único para ti.">
+    <meta name="description" content="Guía lunar personalizada. Descubre tus fechas clave y portales emocionales del mes. Documento HTML de 8-12 páginas único para ti.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -127,14 +127,15 @@
         }
 
         .tagline {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             color: rgba(255, 255, 255, 0.95);
             margin-bottom: 24px;
             font-weight: 400;
-            line-height: 1.4;
-            max-width: 800px;
+            line-height: 1.5;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
+            padding: 0 20px;
         }
 
         .moon-phase {
@@ -153,17 +154,26 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 16px;
+            gap: 20px;
             margin-top: 32px;
         }
 
         .value-prop {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: rgba(255, 255, 255, 0.95);
-            font-weight: 500;
+            font-weight: 400;
+            max-width: 700px;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .value-prop span:first-child {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
         .form-main-container {
@@ -283,36 +293,6 @@
             margin-bottom: 16px;
         }
 
-        .price-equivalents {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.1rem;
-            margin-top: 24px;
-            line-height: 1.8;
-        }
-
-        .currency-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 12px 16px;
-            border-radius: 12px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: transform 0.2s ease;
-            margin-top: 16px;
-        }
-
-        .currency-item:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .flag {
-            font-size: 1.5rem;
-        }
-
         .delivery-info {
             background: rgba(0, 24, 71, 0.3);
             border: 1px solid rgba(242, 181, 0, 0.3);
@@ -368,22 +348,74 @@
             transform: none;
         }
 
-        .payment-info {
+        .payment-options {
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .payment-options-title {
             text-align: center;
-            margin-top: 20px;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 28px;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .payment-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .payment-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(242, 181, 0, 0.4);
+            border-color: var(--accent-gold);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .payment-logo-container {
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
         }
 
-        .stripe-logo {
-            height: 20px;
-            vertical-align: middle;
-            filter: brightness(0) invert(1);
-            opacity: 0.8;
+        .payment-logo {
+            max-height: 70px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .payment-price {
+            font-size: 2.2rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-shadow: 0 0 20px rgba(242, 181, 0, 0.5);
+        }
+
+        .payment-label {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1rem;
+            margin-top: 12px;
+            font-weight: 500;
         }
 
         .loading, .success-message, .error-message {
@@ -675,11 +707,13 @@
         @media (max-width: 768px) {
             .container { padding: 0 16px; }
             .logo { font-size: 2.5rem; }
-            .tagline { font-size: 1.15rem; }
+            .tagline { font-size: 1.1rem; }
+            .value-prop { font-size: 1rem; }
             .form-main-container { padding: 32px 20px; }
             .form-grid { grid-template-columns: 1fr; gap: 20px; }
             .price { font-size: 2.5rem; }
             .stripe-button { font-size: 1.15rem; padding: 18px 40px; width: 90%; }
+            .payment-methods { grid-template-columns: 1fr; }
             .legal-links { flex-direction: column; gap: 16px; }
             .cookie-content { flex-direction: column; text-align: center; }
             .testimonials-grid { grid-template-columns: 1fr; }
@@ -699,20 +733,20 @@
         <!-- HEADER -->
         <header>
             <div class="logo">🌙 Tu Guía Lunar Personalizada</div>
-            <div class="tagline">Tu brújula emocional para tomar decisiones con claridad y propósito</div>
+            <div class="tagline">Tu guía Lunar mensual 100% personalizada: interpretaciones profundas + fechas clave para navegar tu mes con propósito</div>
             <div class="moon-phase">🌕</div>
             <div class="value-props">
                 <div class="value-prop">
-                    <span>✨</span>
-                    <span>100% Personalizada</span>
-                </div>
-                <div class="value-prop">
-                    <span>📩</span>
-                    <span>Entrega en el día</span>
-                </div>
-                <div class="value-prop">
                     <span>📄</span>
-                    <span>Documento HTML (para abrir en cualquier navegador)</span>
+                    <span>Recibes documento HTML completo – Léelo todo el mes desde cualquier navegador, móvil o PC</span>
+                </div>
+                <div class="value-prop">
+                    <span>🌙</span>
+                    <span>Análisis personalizado día a día + super-activaciones clave – Decisiones conscientes, desarrollo personal y conexión con tu verdadero ser</span>
+                </div>
+                <div class="value-prop">
+                    <span>⚡</span>
+                    <span>Entrega en 24 horas – Comienza tu mes transformador con tu brújula emocional lista</span>
                 </div>
             </div>
         </header>
@@ -784,23 +818,16 @@
                 
                 <div class="form-group">
                     <label for="pais">País donde estarás *</label>
-                    <input type="text" id="pais" name="pais" required placeholder="Ej: España">
+                    <input type="text" id="pais" name="pais" required placeholder="Ej: Argentina">
                 </div>
                 
                 <div class="form-group">
                     <label for="ciudad">Ciudad donde estarás *</label>
-                    <input type="text" id="ciudad" name="ciudad" required placeholder="Ej: Madrid">
+                    <input type="text" id="ciudad" name="ciudad" required placeholder="Ej: Buenos Aires">
                 </div>
             </div>
 
             <button type="button" class="stripe-button" id="stripeBtn">🌙 Enviar y Pagar Ahora</button>
-            
-            <div class="payment-info">
-                <span>🔒 Pago 100% seguro procesado por</span>
-                <svg class="stripe-logo" viewBox="0 0 60 25" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M59.64 14.28h-8.06c.19 1.93 1.6 2.55 3.2 2.55 1.64 0 2.96-.37 4.05-.95v3.32a8.33 8.33 0 0 1-4.56 1.1c-4.01 0-6.83-2.5-6.83-7.48 0-4.19 2.39-7.52 6.3-7.52 3.92 0 5.96 3.28 5.96 7.5 0 .4-.04 1.26-.06 1.48zm-5.92-5.62c-1.03 0-2.17.73-2.17 2.58h4.25c0-1.85-1.07-2.58-2.08-2.58zM40.95 20.3c-1.44 0-2.32-.6-2.9-1.04l-.02 4.63-4.12.87V5.57h3.76l.08 1.02a4.7 4.7 0 0 1 3.23-1.29c2.9 0 5.62 2.6 5.62 7.4 0 5.23-2.7 7.6-5.65 7.6zM40 8.95c-.95 0-1.54.34-1.97.81l.02 6.12c.4.44.98.78 1.95.78 1.52 0 2.54-1.65 2.54-3.87 0-2.15-1.04-3.84-2.54-3.84zM28.24 5.57h4.13v14.44h-4.13V5.57zm0-4.7L32.37 0v3.36l-4.13.88V.88zm-4.32 9.35v9.79H19.8V5.57h3.7l.12 1.22c1-1.77 3.07-1.41 3.62-1.22v3.79c-.52-.17-2.29-.43-3.32.86zm-8.55 4.72c0 2.43 2.6 1.68 3.12 1.46v3.36c-.55.3-1.54.54-2.89.54a4.15 4.15 0 0 1-4.27-4.24l.01-13.17 4.02-.86v3.54h3.14V9.1h-3.13v5.85zm-4.91.7c0 2.97-2.31 4.66-5.73 4.66a11.2 11.2 0 0 1-4.46-.93v-3.93c1.38.75 3.1 1.31 4.46 1.31.92 0 1.53-.24 1.53-1C6.26 13.77 0 14.51 0 9.95 0 7.04 2.28 5.3 5.62 5.3c1.36 0 2.72.2 4.09.75v3.88a9.23 9.23 0 0 0-4.1-1.06c-.86 0-1.44.25-1.44.9 0 1.85 6.29.97 6.29 5.88z" fill="currentColor"/>
-                </svg>
-            </div>
 
             <div class="loading" id="loading">
                 🌙 Enviando tus datos de forma segura...<br>
@@ -808,30 +835,44 @@
             </div>
             
             <div class="success-message" id="successMessage">
-                ✅ Datos enviados correctamente. Redirigiendo al pago seguro...
+                ✅ Datos enviados correctamente. Puedes elegir tu método de pago a continuación.
             </div>
 
             <div class="error-message" id="errorMessage">
                 ❌ Error al procesar tus datos. Por favor, inténtalo de nuevo.
             </div>
 
+            <div class="payment-options">
+                <div class="payment-options-title">💳 Elige tu método de pago preferido:</div>
+                <div class="payment-methods">
+                    <a href="#" class="payment-card" id="stripePayment">
+                        <div class="payment-logo-container">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 468 222.5'%3E%3Cpath fill='%236772E5' d='M414 113.4c0-25.6-12.4-45.8-36.1-45.8-23.8 0-38.2 20.2-38.2 45.6 0 30.1 17 45.3 41.4 45.3 11.9 0 20.9-2.7 27.7-6.5v-20c-6.8 3.4-14.6 5.5-24.5 5.5-9.7 0-18.3-3.4-19.4-15.2h48.9c0-1.3.2-6.5.2-8.9zm-49.4-9.5c0-11.3 6.9-16 13.2-16 6.1 0 12.6 4.7 12.6 16h-25.8zm-63.5-45.8c-9.8 0-16.1 4.6-19.6 7.8l-1.3-6.2h-22v116.6l25-5.3.1-28.3c3.6 2.6 8.9 6.3 17.7 6.3 17.9 0 34.2-14.4 34.2-46.1-.1-29-16.6-44.8-34.1-44.8zm-6 68.9c-5.9 0-9.4-2.1-11.8-4.7l-.1-37.1c2.6-2.9 6.2-4.9 11.9-4.9 9.1 0 15.4 10.2 15.4 23.3 0 13.4-6.2 23.4-15.4 23.4zm-71.3-74.4l25.1-5.4V36l-25.1 5.3m0 9.3h25.1v87.5h-25.1m-35.8 0h25.1V58.9h-25.1m12.5-26.6c8.3 0 15.1-6.7 15.1-15s-6.7-15-15.1-15c-8.2 0-15 6.7-15 15s6.8 15 15 15zm-41-26.5l-24.4 5.2-.1 80.1c0 14.8 11.1 25.7 25.9 25.7 8.2 0 14.2-1.5 17.5-3.3V135c-3.2 1.3-19 5.9-19-8.9V75.6h19V58.9h-19V32.4zm-56.7 35.8c0-3.9 3.2-5.4 8.5-5.4 7.6 0 17.2 2.3 24.8 6.4V48.4c-8.3-3.3-16.5-4.6-24.8-4.6-20.3 0-33.7 10.6-33.7 28.3 0 27.6 38.1 23.2 38.1 35.2 0 4.6-4 6.1-9.6 6.1-8.3 0-18.9-3.4-27.3-8v21.4c9.3 4 18.7 5.7 27.3 5.7 20.8 0 35.1-10.3 35.1-28.2-.1-29.8-38.2-24.5-38.2-35.9z'/%3E%3C/svg%3E" alt="Stripe" class="payment-logo">
+                        </div>
+                        <div class="payment-price">10€</div>
+                        <div class="payment-label">Internacional (Tarjeta)</div>
+                    </a>
+                    
+                    <a href="https://mpago.la/2UXRcF4" target="_blank" class="payment-card" id="mpPayment">
+                        <div class="payment-logo-container">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 160'%3E%3Crect fill='%2300B1EA' width='400' height='160' rx='10'/%3E%3Cpath fill='white' d='M120 50c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20zm0 35c-8.3 0-15-6.7-15-15s6.7-15 15-15 15 6.7 15 15-6.7 15-15 15z'/%3E%3Cpath fill='white' d='M120 60c-5.5 0-10 4.5-10 10v25h5V70c0-2.8 2.2-5 5-5s5 2.2 5 5v25h5V70c0-5.5-4.5-10-10-10z'/%3E%3Ctext x='160' y='75' font-family='Arial,sans-serif' font-size='32' font-weight='700' fill='white'%3Emercado%3C/text%3E%3Ctext x='160' y='110' font-family='Arial,sans-serif' font-size='32' font-weight='700' fill='white'%3Epago%3C/text%3E%3C/svg%3E" alt="Mercado Pago" class="payment-logo">
+                        </div>
+                        <div class="payment-price">17.000 ARS</div>
+                        <div class="payment-label">Argentina</div>
+                    </a>
+                </div>
+            </div>
+
             <div class="price-section">
                 <div class="price">10€</div>
-                <div class="price-description">Pago único • Entrega en el día</div>
-                <div class="price-equivalents">
-                    💱 <strong>Equivalente aproximado:</strong>
-                    <div class="currency-item">
-                        <span class="flag">🇦🇷</span>
-                        <span>10.600 ARS</span>
-                    </div>
-                </div>
+                <div class="price-description">Pago único • Entrega en 24 horas</div>
             </div>
 
             <div class="delivery-info">
                 <h3>⚡ Entrega rápida y personalizada</h3>
                 <p><strong>1.</strong> Completa el formulario y confirma tu pago seguro</p>
                 <p><strong>2.</strong> Tu guía se elabora individualmente para máxima precisión</p>
-                <p><strong>3.</strong> Recibes tu documento HTML por email durante el transcurso del día</p>
+                <p><strong>3.</strong> Recibes tu documento HTML por email en 24 horas</p>
             </div>
         </form>
 
@@ -998,7 +1039,7 @@
             
             const contents = {
                 privacy: `<h2>Política de Privacidad</h2><p>En Tu Guía Lunar, respetamos tu privacidad y nos comprometemos a proteger tus datos personales.</p><h3>Datos que recopilamos:</h3><ul><li>Nombre completo</li><li>Dirección de correo electrónico</li><li>Fecha y hora de nacimiento</li><li>Ciudad de nacimiento</li><li>Información sobre la consulta solicitada</li></ul><h3>Uso de los datos:</h3><p>Utilizamos tus datos exclusivamente para:</p><ul><li>Elaborar tu guía lunar personalizada</li><li>Comunicarnos contigo sobre tu solicitud</li><li>Procesar el pago correspondiente</li></ul><h3>Protección de datos:</h3><p>Tus datos están protegidos y no se comparten con terceros sin tu consentimiento.</p><h3>Derechos:</h3><p>Tienes derecho a acceder, rectificar o eliminar tus datos contactando a <a href="mailto:contacto@tuguialunar.com" style="color: var(--accent-gold);">contacto@tuguialunar.com</a></p>`,
-                terms: `<h2>Términos y Condiciones</h2><h3>1. Servicios</h3><p>Tu Guía Lunar ofrece guías astrológicas personalizadas para fines de entretenimiento y autoconocimiento.</p><h3>2. Precio y Pago</h3><p>El precio actual es de 10€ por guía (pago único). Los precios pueden cambiar sin previo aviso.</p><h3>3. Entrega</h3><p>Las guías se entregan en formato HTML por correo electrónico durante el transcurso del día.</p><h3>4. Política de Reembolsos</h3><p>Debido a la naturaleza personalizada del servicio, no se ofrecen reembolsos una vez entregada la guía.</p><h3>5. Uso del Servicio</h3><p>Las guías son para uso personal y no deben redistribuirse sin autorización.</p><h3>6. Limitación de Responsabilidad</h3><p>Nuestras guías son para fines de entretenimiento y no constituyen asesoramiento profesional.</p>`,
+                terms: `<h2>Términos y Condiciones</h2><h3>1. Servicios</h3><p>Tu Guía Lunar ofrece guías astrológicas personalizadas para fines de entretenimiento y autoconocimiento.</p><h3>2. Precio y Pago</h3><p>El precio actual es de 10€ por guía (pago único). Los precios pueden cambiar sin previo aviso.</p><h3>3. Entrega</h3><p>Las guías se entregan en formato HTML por correo electrónico en 24 horas.</p><h3>4. Política de Reembolsos</h3><p>Debido a la naturaleza personalizada del servicio, no se ofrecen reembolsos una vez entregada la guía.</p><h3>5. Uso del Servicio</h3><p>Las guías son para uso personal y no deben redistribuirse sin autorización.</p><h3>6. Limitación de Responsabilidad</h3><p>Nuestras guías son para fines de entretenimiento y no constituyen asesoramiento profesional.</p>`,
                 legal: `<h2>Aviso Legal</h2><h3>Información de la empresa:</h3><p>Denominación: Tu Guía Lunar<br>Email: <a href="mailto:contacto@tuguialunar.com" style="color: var(--accent-gold);">contacto@tuguialunar.com</a><br>Sitio web: tuguialunar.com</p><h3>Naturaleza del servicio:</h3><p>Tu Guía Lunar ofrece servicios de consultoría astrológica y guías personalizadas con fines de entretenimiento y desarrollo personal.</p><h3>Propiedad intelectual:</h3><p>Todo el contenido de este sitio web está protegido por derechos de autor. Las guías generadas son propiedad exclusiva del cliente.</p><h3>Jurisdicción:</h3><p>Este sitio web está sujeto a la legislación española y europea en materia de protección de datos y comercio electrónico.</p>`,
                 cookies: `<h2>Política de Cookies</h2><h3>¿Qué son las cookies?</h3><p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Nos ayudan a recordar tus preferencias y mejorar tu experiencia de navegación.</p><h3>Tipos de cookies que utilizamos:</h3><ul><li><strong>Cookies técnicas (necesarias):</strong> Esenciales para el funcionamiento básico del sitio web. No pueden desactivarse.</li><li><strong>Cookies de preferencias:</strong> Recordamos tus preferencias sobre cookies y configuración del sitio.</li><li><strong>Cookies analíticas:</strong> Nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web mediante la recopilación y comunicación de información de forma anónima.</li><li><strong>Cookies funcionales:</strong> Permiten que el sitio web proporcione una funcionalidad y personalización mejoradas.</li></ul><h3>Cookies específicas:</h3><ul><li><strong>cookiesAccepted:</strong> Almacena tu preferencia sobre el uso de cookies (técnica/necesaria)</li><li><strong>EmailJS:</strong> Para el funcionamiento del formulario de contacto (funcional)</li></ul><h3>Gestión de cookies:</h3><p>Puedes controlar y/o eliminar las cookies como desees. Puedes eliminar todas las cookies que ya están en tu ordenador y puedes configurar la mayoría de navegadores para evitar que se instalen.</p><p><strong>En tu navegador:</strong></p><ul><li>Chrome: Configuración > Privacidad y seguridad > Cookies</li><li>Firefox: Preferencias > Privacidad y seguridad</li><li>Safari: Preferencias > Privacidad</li><li>Edge: Configuración > Privacidad, búsqueda y servicios</li></ul><h3>Consecuencias de deshabilitar cookies:</h3><p>Si desactivas las cookies, es posible que no puedas utilizar ciertas funciones de nuestro sitio web, como el formulario de contacto.</p><h3>Consentimiento:</h3><p>Al continuar navegando por nuestro sitio web sin cambiar la configuración de cookies de tu navegador, aceptas nuestro uso de cookies según se describe en esta política.</p><h3>Actualizaciones:</h3><p>Podemos actualizar esta Política de Cookies ocasionalmente. Te recomendamos revisar esta página periódicamente para estar informado sobre cómo utilizamos las cookies.</p><h3>Contacto:</h3><p>Si tienes preguntas sobre nuestra Política de Cookies, puedes contactarnos en: <a href="mailto:contacto@tuguialunar.com" style="color: var(--accent-gold);">contacto@tuguialunar.com</a></p><p><em>Última actualización: Enero 2025</em></p>`
             };
@@ -1065,10 +1106,16 @@
                 .then(function(response) {
                     loading.style.display = 'none';
                     successMessage.style.display = 'block';
+                    submitButton.style.opacity = '1';
+                    submitButton.style.pointerEvents = 'auto';
                     
+                    // Scroll to payment options
                     setTimeout(() => {
-                        window.location.href = 'https://buy.stripe.com/fZu28jaE69bggGSacaejK02';
-                    }, 2000);
+                        document.querySelector('.payment-options').scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center' 
+                        });
+                    }, 500);
                 })
                 .catch(function(error) {
                     loading.style.display = 'none';
@@ -1098,6 +1145,66 @@
             if (stripeButton) {
                 stripeButton.addEventListener('click', function(e) {
                     e.preventDefault();
+                    submitFormAndRedirect();
+                });
+            }
+
+            // Payment card clicks
+            const stripePayment = document.getElementById('stripePayment');
+            if (stripePayment) {
+                stripePayment.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const requiredFields = ['nombre', 'email', 'fechaNacimiento', 'horaNacimiento', 'ciudadNacimiento', 'mes', 'pais', 'ciudad', 'ano'];
+                    let allFieldsValid = true;
+                    
+                    requiredFields.forEach(fieldId => {
+                        const field = document.getElementById(fieldId);
+                        if (!field.value.trim()) {
+                            allFieldsValid = false;
+                            field.style.borderColor = '#ff4444';
+                        }
+                    });
+                    
+                    if (!allFieldsValid) {
+                        alert('Por favor completa todos los campos del formulario antes de continuar con el pago.');
+                        document.getElementById('nombre').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        return;
+                    }
+                    
+                    // Enviar datos primero
+                    submitFormAndRedirect();
+                    
+                    // Redirigir a Stripe después de un breve delay
+                    setTimeout(() => {
+                        window.location.href = 'https://buy.stripe.com/fZu28jaE69bggGSacaejK02';
+                    }, 2000);
+                });
+            }
+
+            // Mercado Pago link ya tiene el href correcto, solo validamos el formulario
+            const mpPayment = document.getElementById('mpPayment');
+            if (mpPayment) {
+                mpPayment.addEventListener('click', function(e) {
+                    const requiredFields = ['nombre', 'email', 'fechaNacimiento', 'horaNacimiento', 'ciudadNacimiento', 'mes', 'pais', 'ciudad', 'ano'];
+                    let allFieldsValid = true;
+                    
+                    requiredFields.forEach(fieldId => {
+                        const field = document.getElementById(fieldId);
+                        if (!field.value.trim()) {
+                            allFieldsValid = false;
+                            field.style.borderColor = '#ff4444';
+                        }
+                    });
+                    
+                    if (!allFieldsValid) {
+                        e.preventDefault();
+                        alert('Por favor completa todos los campos del formulario antes de continuar con el pago.');
+                        document.getElementById('nombre').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        return;
+                    }
+                    
+                    // Enviar datos antes de redirigir
                     submitFormAndRedirect();
                 });
             }
