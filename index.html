@@ -176,6 +176,31 @@
             margin-top: 2px;
         }
 
+        .example-button {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 14px 32px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(242, 181, 0, 0.4);
+            border-radius: 50px;
+            color: rgba(255, 255, 255, 0.95);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 16px rgba(242, 181, 0, 0.15);
+        }
+
+        .example-button:hover {
+            background: rgba(242, 181, 0, 0.15);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(242, 181, 0, 0.3);
+            color: var(--accent-gold);
+        }
+
         .form-main-container {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
@@ -677,6 +702,11 @@
             .logo { font-size: 2.5rem; }
             .tagline { font-size: 1.1rem; }
             .value-prop { font-size: 1rem; }
+            .example-button { 
+                font-size: 1rem; 
+                padding: 12px 28px;
+                margin-top: 24px;
+            }
             .form-main-container { padding: 32px 20px; }
             .form-grid { grid-template-columns: 1fr; gap: 20px; }
             .stripe-button { font-size: 1.15rem; padding: 18px 40px; width: 90%; }
@@ -716,6 +746,10 @@
                     <span>Entrega en 24 horas – Comienza tu mes transformador con tu brújula emocional lista</span>
                 </div>
             </div>
+            
+            <a href="ejemplo-guia-lunar.html" target="_blank" class="example-button">
+                🌙 Ver Guía de Ejemplo
+            </a>
         </header>
 
         <!-- FORMULARIO PRINCIPAL -->
